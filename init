@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+REPO_DIR=$HOME/repo
+function confirm:message() {
+MESSAGE=$1
+if [[ -n "$MESSAGE" ]]
+then
+    echo -n "$MESSAGE"
+fi
+echo -n "(y/n) "
+while [ true ]
+do
+    read -n 1
+    if [[ "$REPLY" = [Yy] ]]
+    then
+        echo ""
+        exit 0
+    elif [[ "$REPLY" = [Nn] ]]
+    then
+        echo ""
+        exit -1
+    fi
+done
+}
+
+if (confirm:message 'Do you want to generate new SSH key?')
+then
+    GITHUB_KEY=$HOME/.ssh/github.pub
+    if [ ! -d $HOME/.ssh/ ]
+    then
+        mkdir $HOME/.ssh
+    fi
+    ssh-keygen -t rsa -f $GITHUB_KEY || exit -1
+    echo "SSH Key is generated. Add below key to your github account."
+    cat $GITHUB_KEY.pub
+    read
+    ssh-add $GITHUB_KEY
+    unset GITHUB_KEY
+fi
+
+if [ ! -d $REPO_DIR ]
+then
+    mkdir $REPO_DIR
+fi
+pushd $REPO_DIR
+git clone git@github.com:sgkim126/vim_script.git || exit -1
+ln -s $REPO_DIR/vim_script $HOME/.vim
+ln -s $REPO_DIR/vim_script/vimrc $HOME/.vimrc
+git clone git@github.com:sgkim126/config_script.git || exit -1
+pushd config_script
+bash make-linux-env.sh
+popd
+
+# vim:set ft=sh:
