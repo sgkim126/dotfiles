@@ -25,7 +25,7 @@ done
 
 if (confirm:message 'Do you want to generate new SSH key?')
 then
-    GITHUB_KEY=$HOME/.ssh/github.pub
+    GITHUB_KEY=$HOME/.ssh/github
     if [ ! -d $HOME/.ssh/ ]
     then
         mkdir $HOME/.ssh
