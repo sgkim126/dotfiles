@@ -91,6 +91,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 alias vi='vim'
+export EDITOR=/usr/bin/vim
 
 export LANG='ko_KR.UTF-8'
 export LC_ADDRESS='ko_KR.UTF-8'
