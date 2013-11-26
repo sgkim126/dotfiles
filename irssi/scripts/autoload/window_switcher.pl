@@ -1,0 +1,1 @@
+link /home/mobius/.irssi/scripts/window_switcher.pl

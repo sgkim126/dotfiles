@@ -1,0 +1,133 @@
+servers = (
+  {
+    address = "irc.uriirc.org";
+    chatnet = "uriirc";
+    port = "16662";
+    autoconnect = "yes";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    autoconnect = "yes";
+    use_ssl = "yes";
+  }
+);
+
+chatnets = {
+  uriirc = {
+    type = "IRC";
+    autosendcmd = "script load trackbar.pl;script load window_switcher.pl;script load nickcolor.pl";
+  };
+  freenode = {
+    type = "IRC";
+    autosendcmd = "script load trackbar.pl;script load window_switcher.pl;script load nickcolor.pl";
+  };
+};
+
+channels = (
+  { name = "#CHANNELS"; chatnet = "uriirc"; autojoin = "yes"; },
+  { name = "#CHANNELS"; chatnet = "freenode"; autojoin = "yes"; }
+);
+
+statusbar = {
+  items = {
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+
+    topicbarstart = "{topicsbstart}";
+    topicbarend = "{topicsbend}";
+
+    time = "{sb $Z}";
+    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
+
+    window = "{sb $winref:$tag/$itemname{sbmode $M}}";
+    window_empty = "{sb $winref{sbservertag $tag}}";
+    prompt = "{prompt $[.15]itemname}";
+    prompt_empty = "{prompt $winname}";
+    topic = " $topic";
+    topic_empty = " Irssi v$J - http://www.irssi.org";
+
+    lag = "{sb Lag: $0-}";
+    act = "{sb Act: $0-}";
+    more = "-- more --";
+  };
+
+  default = {
+    window = {
+      disabled = "no";
+
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "active";
+
+      items = {
+        barstart = { priority = "100"; };
+        time = { };
+        user = { };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        act = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    window_inact = {
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "inactive";
+      items = {
+        barstart = { priority = "100"; };
+        window = { };
+        window_empty = { };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+
+    prompt = {
+      type = "root";
+      placement = "bottom";
+      position = "100";
+      visible = "always";
+      items = {
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+        input = { priority = "10"; };
+      };
+    };
+
+    topic = {
+      type = "root";
+      placement = "top";
+      position = "1";
+      visible = "always";
+      items = {
+        topicbarstart = { priority = "100"; };
+        topic = { };
+        topic_empty = { };
+        topicbarend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+
+settings = {
+  core = {
+    real_name = "REAL_NAME";
+    user_name = "USER_NAME";
+    nick = "NICK";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+};
+
+windows = { 1 = { immortal = "yes"; name = "(status)"; level = "ALL"; }; };
+
+hilights = (
+  { text = "HILIGHTS"; nick = "no"; word = "no"; }
+);

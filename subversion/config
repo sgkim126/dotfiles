@@ -1,0 +1,36 @@
+[auth]
+# password-stores = gnome-keyring,kwallet
+# store-passwords = no
+# store-auth-creds = no
+
+[helpers]
+editor-cmd = vim
+# diff-cmd = diff_program (diff, gdiff, etc.)
+# diff3-cmd = diff3_program (diff3, gdiff3, etc.)
+# diff3-has-program-arg = [yes | no]
+# merge-tool-cmd = merge_command
+
+[tunnels]
+# ssh222 = $SVN_SSH ssh -q -o ControlMaster=no -p 222
+
+[miscellany]
+global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo *.rej *~ .*.sw?
+# log-encoding = latin1
+# use-commit-times = yes
+# no-unlock = yes
+# mime-types-file = /path/to/mime.types
+# preserved-conflict-file-exts = doc ppt xls od?
+# enable-auto-props = yes
+# interactive-conflicts = no
+
+[auto-props]
+*.c = svn:eol-style=native
+*.cpp = svn:eol-style=native
+*.h = svn:keywords=Author Date Id Rev URL;svn:eol-style=native
+*.dsp = svn:eol-style=CRLF
+*.dsw = svn:eol-style=CRLF
+*.sh = svn:eol-style=native;svn:executable
+*.txt = svn:eol-style=native;svn:keywords=Author Date Id Rev URL;
+*.png = svn:mime-type=image/png
+*.jpg = svn:mime-type=image/jpeg
+Makefile = svn:eol-style=native
