@@ -43,10 +43,10 @@ then
     mkdir $REPO_DIR
 fi
 pushd $REPO_DIR
-git clone git@github.com:sgkim126/vim_script.git || exit -1
+git clone https://github.com/sgkim126/vim_script.git || exit -1
 ln -s $REPO_DIR/vim_script $HOME/.vim
 ln -s $REPO_DIR/vim_script/vimrc $HOME/.vimrc
-git clone git@github.com:sgkim126/config_script.git || exit -1
+git clone https://github.com/sgkim126/config_script.git || exit -1
 pushd config_script
 bash make-linux-env.sh
 popd
