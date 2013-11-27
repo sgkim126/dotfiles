@@ -1,0 +1,4 @@
+# Vim
+.*.sw[a-z]
+Session.vim
+.netrwhist

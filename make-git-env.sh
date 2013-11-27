@@ -17,23 +17,31 @@ do
 done
 }
 
-if [ ! -e $CONFIG_PATH/gitconfig ]
+function backup:target() {
+TARGET=$1
+if [ ! -e $CONFIG_PATH/$TARGET ]
 then
-    echo "ERROR: $CONFIG_PATH/gitconfig is not exist." 1>&2
+    echo "ERROR: $CONFIG_PATH/$TARGET is not exist." 1>&2
+    unset TARGET
     exit -1
 fi
-if [ -e $HOME/.gitconfig ]
+if [ -e $HOME/.$TARGET ]
 then
-    TARGET_FILE="$HOME/.gitconfig"
-    BACKUP_FILE="$HOME/gitconfig.backup"
+    TARGET_FILE="$HOME/.$TARGET"
+    BACKUP_FILE="$HOME/$TARGET.backup"
     echo "ERROR: $TARGET_FILE is already exist." 1>&2
     echo " The old $TARGET_FILE will be copied to $BACKUP_FILE." 1>&2
     mv $TARGET_FILE $BACKUP_FILE || exit -1
     unset TARGET_FILE
     unset BACKUP_FILE
+    unset TARGET
 fi
+}
 
+backup:target gitconfig
 cp $CONFIG_PATH/gitconfig $HOME/.gitconfig
+backup:target gitignore
+ln -s $CONFIG_PATH/gitignore $HOME/.gitignore
 
 if [ ! $(git config --global user.name) ]
 then
