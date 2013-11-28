@@ -37,5 +37,6 @@ fi
 
 mkdir $HOME/.root
 mkdir $HOME/.root/lib
-mkdir $HOME/.root/bin
+ln -s $CONFIG_PATH/bin $HOME/.root/bin
+
 # vim: set ft=sh
