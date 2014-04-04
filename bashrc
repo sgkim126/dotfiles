@@ -120,6 +120,11 @@ if [ -x /usr/lib/command-not-found ]; then
     }
 fi
 
+if [ -f /etc/bash_completion ]
+then
+    source /etc/bash_completion
+fi
+
 if [ -f "$HOME/.rvm/scripts/rvm" ]
 then
     source "$HOME/.rvm/scripts/rvm"

@@ -16,10 +16,6 @@ if [ "$PS1" ]; then
     fi
 fi
 
-if [ -f /etc/bash_completion ]
-then
-    source /etc/bash_completion
-fi
 if [ -f "$HOME/.bash_completion" ]
 then
     source "$HOME/.bash_completion"
