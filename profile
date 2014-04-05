@@ -35,4 +35,7 @@ if [ -d "$HOME/.root" ] ; then
     fi
 fi
 
+if [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then
+    export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
+fi
 # vim:set ft=sh:
