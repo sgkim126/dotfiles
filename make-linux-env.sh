@@ -25,6 +25,7 @@ make_link:target subversion
 make_link:target tmux.conf
 make_link:target screenrc
 make_link:target irssi
+make_link:target ctags
 
 bash make-git-env.sh
 bash make-xorg-env.sh
