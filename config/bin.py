@@ -3,10 +3,6 @@ import os
 
 
 class ConfigBin(config.Config):
-    def targets(self):
-        return [
-            'git-new-workdir',
-        ]
     def source_dir(self):
         return os.path.join(super().source_dir(), 'bin')
     def target_dir(self):

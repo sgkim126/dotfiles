@@ -4,10 +4,6 @@ import subprocess
 
 
 class ConfigVim(config.Config):
-    def targets(self):
-        return [
-            'vimrc',
-        ]
     def repo(self):
         return os.path.join(os.getenv('HOME'), 'repo')
 

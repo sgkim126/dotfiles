@@ -4,11 +4,6 @@ import subprocess
 
 
 class ConfigXorg(config.Config):
-    def targets(self):
-        return [
-            'evoluent.conf',
-            'kensington-slimblade.conf',
-        ]
     def source_dir(self):
         return os.path.join(super().source_dir(), 'xorg')
     def target_dir(self):

@@ -6,12 +6,9 @@ import sys
 
 class Config:
     __metaclass__ = ABCMeta
-    def __init__(self):
+    def __init__(self, *targets):
+        self.targets = targets
         pass
-
-    @abstractmethod
-    def targets(self):
-        return []
 
     @abstractmethod
     def source_dir(self):
@@ -58,7 +55,7 @@ class Config:
 
     def run(self):
         self.pre()
-        for target in self.targets():
+        for target in self.targets:
             if not self.source_exists(target):
                 continue
             if not self.resolve_conflict(target):

@@ -5,11 +5,6 @@ import subprocess
 
 
 class ConfigGit(config.Config):
-    def targets(self):
-        return [
-            'gitconfig',
-            'gitignore',
-        ]
     def source_dir(self):
         return os.path.join(super().source_dir(), 'home')
     def post(self):

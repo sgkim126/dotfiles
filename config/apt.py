@@ -4,19 +4,6 @@ import subprocess
 
 
 class ConfigApt(config.Config):
-    def targets(self):
-        return [
-            'build-essential',
-            'git',
-            'irssi',
-            'python2.7',
-            'python3',
-            'ri',
-            'ruby',
-            'screen',
-            'tmux',
-            'vim',
-        ]
     def source_exists(self, target):
         return True
     def resolve_conflict(self, target):
@@ -27,4 +14,4 @@ class ConfigApt(config.Config):
     def do(self, target):
         pass
     def post(self):
-        subprocess.call(['sudo', 'apt-get', 'install'] + self.targets())
+        subprocess.call(['sudo', 'apt-get', 'install'] + self.targets)
