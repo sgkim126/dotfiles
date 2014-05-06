@@ -21,4 +21,4 @@ class ConfigGit(config.Config):
                     break
             subprocess.call(['git', 'config', '--global', 'user.email', mail])
     def do(self, target):
-        shutil.copy(self.source_path(target), self.target_path(target))
+        shutil.copy(self.source_path(target), self.destination_path(target))
