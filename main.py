@@ -22,6 +22,7 @@ if __name__ == '__main__':
         if confirm('Do you want to install packages with sudo?(y/n) '):
             config.apt.ConfigApt(
                 'build-essential',
+                'ctags',
                 'git',
                 'irssi',
                 'python2.7',
