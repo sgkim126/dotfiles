@@ -25,6 +25,7 @@ if __name__ == '__main__':
                 'ctags',
                 'git',
                 'irssi',
+                'openjdk-7-jdk',
                 'python2.7',
                 'python3',
                 'ri',
