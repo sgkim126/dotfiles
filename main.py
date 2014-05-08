@@ -26,6 +26,7 @@ if __name__ == '__main__':
                 'git',
                 'irssi',
                 'openjdk-7-jdk',
+                'openvpn',
                 'python2.7',
                 'python3',
                 'ri',
