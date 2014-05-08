@@ -30,6 +30,9 @@ if __name__ == '__main__':
                 'python3',
                 'ri',
                 'ruby',
+                'scala',
+                'scala-doc',
+                'scala-library',
                 'screen',
                 'tmux',
                 'vim'
