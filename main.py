@@ -21,6 +21,7 @@ if __name__ == '__main__':
     try:
         if confirm('Do you want to install packages with sudo?(y/n) '):
             config.apt.ConfigApt(
+                'ack-grep',
                 'build-essential',
                 'ctags',
                 'git',
