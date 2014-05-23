@@ -48,7 +48,8 @@ if __name__ == '__main__':
                 'lib',
                 'opt',
                 'tmp',
-                'var'
+                'usr',
+                'var',
             ).run()
     except Exception as ex:
         print(ex)
