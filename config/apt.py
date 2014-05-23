@@ -10,7 +10,7 @@ class ConfigApt(config.Config):
         return True
     def pre(self):
         subprocess.call(['sudo', 'apt-get', 'update'])
-        subprocess.call(['sudo', 'apt-get', 'upgrate'])
+        subprocess.call(['sudo', 'apt-get', 'upgrade', '-y'])
     def do(self, target):
         pass
     def post(self):
