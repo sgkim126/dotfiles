@@ -24,6 +24,7 @@ if __name__ == '__main__':
                 'ack-grep',
                 'build-essential',
                 'ctags',
+                'curl',
                 'git',
                 'irssi',
                 'openjdk-7-jdk',
