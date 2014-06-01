@@ -5,6 +5,7 @@ import config.git
 import config.home
 import config.root
 import config.vim
+import config.virtualenv
 import config.xorg
 
 
@@ -91,5 +92,10 @@ if __name__ == '__main__':
                 'evoluent.conf',
                 'kensington-slimblade.conf'
             ).run()
+    except Exception as ex:
+        print(ex)
+    try:
+        if confirm('Do you want to install virtualenv?(y/n) '):
+            config.virtualenv.ConfigVirtualenv('1.11.6').run()
     except Exception as ex:
         print(ex)
