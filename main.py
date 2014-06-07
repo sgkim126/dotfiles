@@ -3,6 +3,7 @@ import config.apt
 import config.bin
 import config.git
 import config.home
+import config.node
 import config.root
 import config.vim
 import config.virtualenv
@@ -98,5 +99,10 @@ if __name__ == '__main__':
     try:
         if confirm('Do you want to install virtualenv?(y/n) '):
             config.virtualenv.ConfigVirtualenv('1.11.6').run()
+    except Exception as ex:
+        print(ex)
+    try:
+        if confirm('Do you want to install node?(y/n) '):
+            config.node.ConfigNode('v0.11.13').run()
     except Exception as ex:
         print(ex)

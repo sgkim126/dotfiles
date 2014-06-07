@@ -38,4 +38,10 @@ fi
 if [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then
     export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
 fi
+
+if [ -d "$HOME/.root/lib/node_modules" ]
+then
+    export NODE_PATH="$PREFIX/lib/node_modules:$NODE_PATH"
+fi
+
 # vim:set ft=sh:
