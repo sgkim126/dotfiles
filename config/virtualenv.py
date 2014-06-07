@@ -28,6 +28,8 @@ class ConfigVirtualenv(config.Config):
         subprocess.call(['git', 'remote', 'add', 'origin', self.address])
         subprocess.call(['git', 'fetch', 'origin', target + ':' + target])
         subprocess.call(['git', 'checkout', '-b', target, 'tags/' + target])
-        fullPath = os.path.join(os.path.join(self.paths, self.name), 'virtualenv.py')
-        destination = os.path.join(os.getenv('HOME'), '.root', 'bin', 'virtualenv.py')
+        fullPath = os.path.join(
+            os.path.join(self.paths, self.name), 'virtualenv.py')
+        destination = os.path.join(
+            os.getenv('HOME'), '.root', 'bin', 'virtualenv.py')
         os.symlink(fullPath, destination)

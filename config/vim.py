@@ -16,7 +16,9 @@ class ConfigVim(config.Config):
                 os.mkdir(path)
 
         make_if_not_exist(self.repo())
-        subprocess.call(['git', 'clone', 'https://github.com/sgkim126/vim_script.git', self.source_dir()])
+        subprocess.call(
+            ['git', 'clone', 'https://github.com/sgkim126/vim_script.git',
+                self.source_dir()])
 
     def post(self):
         os.symlink(self.source_dir(), os.path.join(os.getenv('HOME'), '.vim'))

@@ -7,6 +7,7 @@ def make_if_not_exist(path):
     if not os.path.exists(path):
         os.mkdir(path)
 
+
 def ssh_keygen():
     while True:
         i = raw_input("Do you want to generate new SSH key? (y/n) ")
@@ -20,11 +21,14 @@ def ssh_keygen():
         if i == 'n':
             break
 
+
 def clone_config_script():
     repo = os.path.join(os.getenv('HOME'), 'repo')
     config_script = os.path.join(repo, 'config_script')
     make_if_not_exist(repo)
-    subprocess.call([ 'git', 'clone', 'https://github.com/sgkim126/config_script.git', config_script ])
+    subprocess.call(
+        ['git', 'clone', 'https://github.com/sgkim126/config_script.git',
+            config_script])
 
 
 if __name__ == '__main__':

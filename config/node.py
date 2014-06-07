@@ -12,11 +12,13 @@ class ConfigNode(config.Config):
 
     def source_dir(self):
         return os.path.join(os.getenv('HOME'), '.root', 'src')
+
     def source_path(self, target):
         return os.path.join(self.source_dir(), self.name)
 
     def destination_dir(self):
         return os.path.join(os.getenv('HOME'), '.root', 'lib')
+
     def destination_path(self, target):
         return os.path.join(self.destination_dir(), self.name)
 

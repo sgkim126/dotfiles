@@ -17,4 +17,6 @@ class ConfigXorg(config.Config):
         return os.path.join(self.destination_dir(), '90-' + target + '.backup')
 
     def do(self, target):
-        subprocess.call(['sudo', 'ln', '-s', self.source_path(target), self.destination_path(target)])
+        subprocess.call(
+            ['sudo', 'ln', '-s', self.source_path(target),
+                self.destination_path(target)])
