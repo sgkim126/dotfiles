@@ -28,7 +28,6 @@ if __name__ == '__main__':
                 'ctags',
                 'curl',
                 'git',
-                'irssi',
                 'openjdk-7-jdk',
                 'openvpn',
                 'python2.7',
