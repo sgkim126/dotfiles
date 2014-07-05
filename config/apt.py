@@ -17,4 +17,4 @@ class ConfigApt(config.Config):
         pass
 
     def post(self):
-        subprocess.call(['sudo', 'apt-get', 'install'] + list(self.targets))
+        subprocess.call(['sudo', 'apt-get', 'install', '-y'] + list(self.targets))
