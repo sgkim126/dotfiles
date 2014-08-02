@@ -6,7 +6,7 @@ import subprocess
 class ConfigVirtualenv(config.Config):
     def __init__(self, *targets):
         super().__init__(*targets)
-        self.paths = os.path.join(os.getenv('HOME'), '.root', 'usr')
+        self.paths = os.path.join(os.getenv('HOME'), '.root', 'opt')
         self.address = "https://github.com/pypa/virtualenv.git"
         self.name = self.address.split('/')[-1][:-4]  # virtualenv
 

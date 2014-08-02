@@ -51,7 +51,6 @@ if __name__ == '__main__':
                 'opt',
                 'src',
                 'tmp',
-                'usr',
                 'var',
             ).run()
     except Exception as ex:
