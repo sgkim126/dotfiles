@@ -38,6 +38,11 @@ if [ -d "$HOME/.root" ] ; then
     then
         export NODE_PATH="$PREFIX/opt/node/lib/node_modules:$NODE_PATH"
     fi
+
+    if [ -d "$PREFIX/opt/ant" ]
+    then
+        export ANT_HOME="$PREFIX/opt/ant"
+    fi
 fi
 
 if [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then

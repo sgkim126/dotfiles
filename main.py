@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import config.ant
 import config.apt
 import config.bin
 import config.git
@@ -101,5 +102,11 @@ if __name__ == '__main__':
     try:
         if confirm('Do you want to install node?(y/n) '):
             config.node.ConfigNode('v0.11.13').run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install ant?(y/n) '):
+            config.ant.ConfigAnt('ANT_194').run()
     except Exception as ex:
         print(ex)
