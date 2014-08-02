@@ -49,7 +49,6 @@ if __name__ == '__main__':
                 'bin',
                 'lib',
                 'opt',
-                'src',
                 'tmp',
                 'var',
             ).run()

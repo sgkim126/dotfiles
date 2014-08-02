@@ -6,18 +6,18 @@ import subprocess
 class ConfigNode(config.Config):
     def __init__(self, *targets):
         super().__init__(*targets)
-        self.paths = os.path.join(os.getenv('HOME'), '.root', 'src')
+        self.path = os.path.join(os.getenv('HOME'), '.root', 'opt')
         self.address = "https://github.com/joyent/node.git"
         self.name = self.address.split('/')[-1][:-4]  # node
 
     def source_dir(self):
-        return os.path.join(os.getenv('HOME'), '.root', 'src')
+        return os.path.join(self.path, 'src')
 
     def source_path(self, target):
         return os.path.join(self.source_dir(), self.name)
 
     def destination_dir(self):
-        return os.path.join(os.getenv('HOME'), '.root', 'lib')
+        return self.path
 
     def destination_path(self, target):
         return os.path.join(self.destination_dir(), self.name)
