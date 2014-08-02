@@ -6,6 +6,7 @@ import config.git
 import config.home
 import config.node
 import config.root
+import config.sbt
 import config.scala
 import config.vim
 import config.virtualenv
@@ -115,5 +116,11 @@ if __name__ == '__main__':
     try:
         if confirm('Do you want to install scala?(y/n) '):
             config.scala.ConfigScala('v2.11.2').run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install sbt?(y/n) '):
+            config.sbt.ConfigSbt('v0.13.5').run()
     except Exception as ex:
         print(ex)
