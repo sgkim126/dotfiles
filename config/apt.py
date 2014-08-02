@@ -17,4 +17,5 @@ class ConfigApt(config.Config):
         pass
 
     def post(self):
-        subprocess.call(['sudo', 'apt-get', 'install', '-y'] + list(self.targets))
+        apt_get_command_without_target = ['sudo', 'apt-get', 'install', '-y']
+        subprocess.call(apt_get_command_without_target + list(self.targets))
