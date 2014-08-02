@@ -1,6 +1,12 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 case ${TERM} in
     xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
