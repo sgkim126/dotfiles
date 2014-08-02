@@ -43,6 +43,12 @@ if [ -d "$HOME/.root" ] ; then
     then
         export ANT_HOME="$PREFIX/opt/ant"
     fi
+
+    if [ -d "$PREFIX/opt/scala" ]
+    then
+        export SCALA_HOME="$PREFIX/opt/scala"
+        export PATH="$SCALA_HOME/bin:$PATH"
+    fi
 fi
 
 if [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then

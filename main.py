@@ -6,6 +6,7 @@ import config.git
 import config.home
 import config.node
 import config.root
+import config.scala
 import config.vim
 import config.virtualenv
 import config.xorg
@@ -108,5 +109,11 @@ if __name__ == '__main__':
     try:
         if confirm('Do you want to install ant?(y/n) '):
             config.ant.ConfigAnt('ANT_194').run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install scala?(y/n) '):
+            config.scala.ConfigScala('v2.11.2').run()
     except Exception as ex:
         print(ex)
