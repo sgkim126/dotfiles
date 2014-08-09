@@ -29,7 +29,6 @@ class ConfigSbt(config.Config):
     def bootstrap_dir(self):
         return os.path.join(self.source_dir(), 'bootstrap')
 
-
     def pre(self):
         if not os.path.exists(self.source_dir()):
             os.makedirs(self.source_dir())
@@ -38,7 +37,7 @@ class ConfigSbt(config.Config):
         os.chdir(self.bootstrap_dir())
 
         bootstrap_tgz_url = ('http://dl.bintray.com'
-                '/sbt/native-packages/sbt/0.13.5/sbt-0.13.5.tgz')
+                             '/sbt/native-packages/sbt/0.13.5/sbt-0.13.5.tgz')
         bootstrap_tgz_file_name = bootstrap_tgz_url.split('/')[-1]
 
         if not os.path.exists(bootstrap_tgz_file_name):
@@ -54,13 +53,11 @@ class ConfigSbt(config.Config):
     def post(self):
         shutil.rmtree(self.bootstrap_dir())
 
-
     def source_exists(self, target):
         return True
 
     def resolve_conflict(self, target):
         return True
-
 
     def do(self, target):
         subprocess.call(['git', 'fetch', 'origin', target + ':' + target])
@@ -79,7 +76,7 @@ class ConfigSbt(config.Config):
     def sbt_script(self, version):
         header = '#/usr/bin/env bash'
         sbt_opts = ('SBT_OPTS="-Xms512M -Xmx1536M -Xss1M'
-                ' -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"')
+                    ' -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"')
         java = ('java $SBT_OPTS -jar ' +
-            self.source_dir() + '/target/sbt-launch-' + version + '.jar')
+                self.source_dir() + '/target/sbt-launch-' + version + '.jar')
         return os.linesep.join([header, sbt_opts, java])
