@@ -78,5 +78,6 @@ class ConfigSbt(config.Config):
         sbt_opts = ('SBT_OPTS="-Xms512M -Xmx1536M -Xss1M'
                     ' -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"')
         java = ('java $SBT_OPTS -jar ' +
-                self.source_dir() + '/target/sbt-launch-' + version + '.jar')
+                self.source_dir() + '/target/sbt-launch-' + version + '.jar ' +
+                '"$@"')
         return os.linesep.join([header, sbt_opts, java])
