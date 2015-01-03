@@ -21,6 +21,12 @@ class ConfigGit(config.Config):
                 if mail != '':
                     break
             subprocess.call(['git', 'config', '--global', 'user.email', mail])
+        if subprocess.call(['git', 'config', '--global', 'github.user']):
+            while True:
+                user = input("Enter your github username: ")
+                if user != '':
+                    break
+            subprocess.call(['git', 'config', '--global', 'github.user', user])
 
     def do(self, target):
         shutil.copy(self.source_path(target), self.destination_path(target))
