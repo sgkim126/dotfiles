@@ -28,9 +28,11 @@ if __name__ == '__main__':
             config.apt.ConfigApt(
                 'ack-grep',
                 'build-essential',
+                'clang',
                 'ctags',
                 'curl',
                 'git',
+                'libpython2.7-dev',
                 'openjdk-7-jdk',
                 'openvpn',
                 'python2.7',

@@ -21,4 +21,10 @@ class ConfigVim(config.Config):
                 self.source_dir()])
 
     def post(self):
-        os.symlink(self.source_dir(), os.path.join(os.getenv('HOME'), '.vim'))
+        vim_dir = os.path.join(os.getenv('HOME'), '.vim')
+        os.symlink(self.source_dir(), vim_dir)
+        subprocess.call(['vim', '+PluginInstall', '+qall'])
+        bundle_dir = os.path.join(vim_dir, 'bundle')
+        you_complete_me_dir = os.path.join(bundle_dir, 'YouCompleteMe')
+        os.chdir(you_complete_me_dir)
+        subprocess.call(['./install.sh', '--clang-completer'])
