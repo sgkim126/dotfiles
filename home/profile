@@ -55,4 +55,19 @@ if [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then
     export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
 fi
 
+LINUXBREW_PREFIX="$HOME/.linuxbrew"
+if [ -d "$LINUXBREW_PREFIX/bin" ]
+then
+    export PATH="$LINUXBREW_PREFIX/bin:$PATH"
+fi
+if [ -d "$LINUXBREW_PREFIX/share/man" ]
+then
+    export MANPATH="$LINUXBREW_PREFIX/share/man:$MANPATH"
+fi
+if [ -d "$LINUXBREW_PREFIX/share/info" ]
+then
+    export INFOPATH="$LINUXBREW_PREFIX/share/info:$INFOPATH"
+fi
+unset LINUXBREW_PREFIX
+
 # vim:set ft=sh:
