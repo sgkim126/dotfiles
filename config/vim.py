@@ -19,6 +19,9 @@ class ConfigVim(config.Config):
         subprocess.call(
             ['git', 'clone', 'https://github.com/sgkim126/vim_script.git',
                 self.source_dir()])
+        os.chdir(self.source_dir())
+        subprocess.call(['git', 'submodule', 'init'])
+        subprocess.call(['git', 'submodule', 'update'])
 
     def post(self):
         vim_dir = os.path.join(os.getenv('HOME'), '.vim')
