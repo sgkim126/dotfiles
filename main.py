@@ -2,6 +2,7 @@
 import config.ant
 import config.apt
 import config.bin
+import config.brew
 import config.git
 import config.home
 import config.node
@@ -87,6 +88,28 @@ if __name__ == '__main__':
             config.vim.ConfigVim('vimrc').run()
     except Exception as ex:
         print(ex)
+
+    try:
+        if confirm('Do you want to install brew?(y/n) '):
+            msg = 'Do you want to install packages for brew with sudo?(y/n)'
+            if confirm(msg):
+                config.apt.ConfigApt(
+                    'build-essential',
+                    'curl',
+                    'git,'
+                    'm4,',
+                    'ruby',
+                    'texinfo',
+                    'libbz2-dev',
+                    'libcurl4-openssl-dev',
+                    'libexpat1-dev',
+                    'libncurses5-dev',
+                    'zlib1g-dev'
+                ).run()
+            config.brew.ConfigBrew().run()
+    except Exception as ex:
+        print(ex)
+
     try:
         if confirm('Do you want to config Xorg with sudo?(y/n) '):
             config.xorg.ConfigXorg(
