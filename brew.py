@@ -15,8 +15,6 @@ if __name__ == '__main__':
             config.package.ConfigPackage('ack').run()
         if (confirm('Do you want to install ctags?(y/n) ')):
             config.package.ConfigPackage('ctags').run()
-        if (confirm('Do you want to install curl?(y/n) ')):
-            config.package.ConfigPackage('curl').run()
 
         if (confirm('Do you want to install git?(y/n) ')):
             config.package.ConfigPackage('git').run()
