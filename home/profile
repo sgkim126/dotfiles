@@ -56,17 +56,8 @@ if [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then
 fi
 
 LINUXBREW_PREFIX="$HOME/.linuxbrew"
-if [ -d "$LINUXBREW_PREFIX/bin" ]
-then
-    export PATH="$LINUXBREW_PREFIX/bin:$PATH"
-fi
-if [ -d "$LINUXBREW_PREFIX/share/man" ]
-then
-    export MANPATH="$LINUXBREW_PREFIX/share/man:$MANPATH"
-fi
-if [ -d "$LINUXBREW_PREFIX/share/info" ]
-then
-    export INFOPATH="$LINUXBREW_PREFIX/share/info:$INFOPATH"
+if [ -f "$LINUXBREW_PREFIX/etc/bash_completion.d/" ]
+    source "$LINUXBREW_PREFIX/etc/bash_completion.d/"
 fi
 unset LINUXBREW_PREFIX
 

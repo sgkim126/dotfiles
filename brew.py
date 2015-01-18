@@ -11,6 +11,9 @@ def confirm(message):
 
 if __name__ == '__main__':
     try:
+        if (confirm('Do you want to install bash-completion?(y/n) ')):
+            config.package.ConfigPackage('bash-completion').run()
+
         if (confirm('Do you want to install ack?(y/n) ')):
             config.package.ConfigPackage('ack').run()
         if (confirm('Do you want to install ctags?(y/n) ')):
