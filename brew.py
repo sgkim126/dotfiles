@@ -19,6 +19,9 @@ if __name__ == '__main__':
         if (confirm('Do you want to install git?(y/n) ')):
             config.package.ConfigPackage('git').run()
 
+        if (confirm('Do you want to install gcc?(y/n) ')):
+            config.package.ConfigPackage('gcc').run()
+
         if (confirm('Do you want to install jdk7?(y/n) ')):
             config.package.ConfigPackage('jdk7').run()
         if (confirm('Do you want to install jdk?(y/n) ')):
