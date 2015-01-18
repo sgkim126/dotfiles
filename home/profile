@@ -57,6 +57,7 @@ fi
 
 LINUXBREW_PREFIX="$HOME/.linuxbrew"
 if [ -f "$LINUXBREW_PREFIX/etc/bash_completion.d/" ]
+then
     source "$LINUXBREW_PREFIX/etc/bash_completion.d/"
 fi
 unset LINUXBREW_PREFIX
