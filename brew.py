@@ -19,10 +19,10 @@ if __name__ == '__main__':
         if (confirm('Do you want to install git?(y/n) ')):
             config.package.ConfigPackage('git').run()
 
+        if (confirm('Do you want to install jdk7?(y/n) ')):
+            config.package.ConfigPackage('jdk7').run()
         if (confirm('Do you want to install jdk?(y/n) ')):
             config.package.ConfigPackage('jdk').run()
-        if (confirm('Do you want to install jdk8?(y/n) ')):
-            config.package.ConfigPackage('jdk8').run()
 
         if (confirm('Do you want to install scala?(y/n) ')):
             config.package.ConfigPackage('scala').run()
