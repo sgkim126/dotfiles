@@ -149,15 +149,15 @@ then
 fi
 
 LINUXBREW_PREFIX="$HOME/.linuxbrew"
-if [ -f "$LINUXBREW_PREFIX/bin" ]
+if [ -d "$LINUXBREW_PREFIX/bin" ]
 then
     export PATH="$LINUXBREW_PREFIX/bin:$PATH"
 fi
-if [ -f "$LINUXBREW_PREFIX/share/man" ]
+if [ -d "$LINUXBREW_PREFIX/share/man" ]
 then
     export MANPATH="$LINUXBREW_PREFIX/share/man:$MANPATH"
 fi
-if [ -f "$LINUXBREW_PREFIX/share/info" ]
+if [ -d "$LINUXBREW_PREFIX/share/info" ]
 then
     export INFOPATH="$LINUXBREW_PREFIX/share/info:$INFOPATH"
 fi
