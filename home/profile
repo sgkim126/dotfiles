@@ -51,15 +51,35 @@ if [ -d "$HOME/.root" ] ; then
     fi
 fi
 
-if [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then
-    export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
+LINUXBREW_PREFIX="$HOME/.linuxbrew"
+if [ -d "$LINUXBREW_PREFIX/bin" ]
+then
+    export PATH="$LINUXBREW_PREFIX/bin:$PATH"
+fi
+if [ -d "$LINUXBREW_PREFIX/share/man" ]
+then
+    export MANPATH="$LINUXBREW_PREFIX/share/man:$MANPATH"
+fi
+if [ -d "$LINUXBREW_PREFIX/share/info" ]
+then
+    export INFOPATH="$LINUXBREW_PREFIX/share/info:$INFOPATH"
 fi
 
-LINUXBREW_PREFIX="$HOME/.linuxbrew"
 if [ -f "$LINUXBREW_PREFIX/etc/bash_completion.d/" ]
 then
     source "$LINUXBREW_PREFIX/etc/bash_completion.d/"
 fi
+
+if [ -d "$LINUXBREW_PREFIX/Library/LinkedKegs/jdk" ]
+then
+    export JAVA_HOME="$LINUXBREW_PREFIX/Library/LinkedKegs/jdk"
+fi
+
+if [ -d "$LINUXBREW_PREFIX/Library/LinkedKegs/scala/libexec" ]
+then
+    export SCALA_HOME="$LINUXBREW_PREFIX/Library/LinkedKegs/scala/libexec"
+fi
+
 unset LINUXBREW_PREFIX
 
 # vim:set ft=sh:
