@@ -19,9 +19,6 @@ if __name__ == '__main__':
         if (confirm('Do you want to install ctags?(y/n) ')):
             config.package.ConfigPackage('ctags').run()
 
-        if (confirm('Do you want to install git?(y/n) ')):
-            config.package.ConfigPackage('git').run()
-
         if (confirm('Do you want to install gcc?(y/n) ')):
             config.package.ConfigPackage('gcc').run()
         if (confirm('Do you want to install llvm?(y/n) ')):
