@@ -80,6 +80,15 @@ then
     export SCALA_HOME="$LINUXBREW_PREFIX/Library/LinkedKegs/scala/libexec"
 fi
 
+if [ -d $LINUXBREW_PREFIX/opt/go/libexec/bin ]
+then
+    export PATH="$LINUXBREW_PREFIX/opt/go/libexec/bin:$PATH"
+    if [ -d "$LINUXBREW_PREFIX/opt/go" ]
+    then
+        export GOPATH="$LINUXBREW_PREFIX/opt/go"
+    fi
+fi
+
 unset LINUXBREW_PREFIX
 
 # vim:set ft=sh:
