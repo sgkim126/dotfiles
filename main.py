@@ -91,6 +91,7 @@ if __name__ == '__main__':
             if confirm(msg):
                 config.apt.ConfigApt(
                     'build-essential',
+                    'cmake',
                     'curl',
                     'git,'
                     'm4,',
