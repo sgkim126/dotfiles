@@ -89,6 +89,11 @@ then
     fi
 fi
 
+if [ -d $LINUXBREW_PREFIX/opt/bin ]
+then
+    export PATH="$LINUXBREW_PREFIX/opt/bin:$PATH"
+fi
+
 unset LINUXBREW_PREFIX
 
 # vim:set ft=sh:
