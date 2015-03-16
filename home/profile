@@ -96,4 +96,6 @@ fi
 
 unset LINUXBREW_PREFIX
 
+export TZ='Asia/Seoul';
+
 # vim:set ft=sh:
