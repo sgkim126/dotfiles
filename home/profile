@@ -33,22 +33,6 @@ if [ -d "$HOME/.root" ] ; then
     if [ -d "$PREFIX/lib" ] ; then
         export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
     fi
-
-    if [ -d "$PREFIX/opt/node/lib/node_modules" ]
-    then
-        export NODE_PATH="$PREFIX/opt/node/lib/node_modules:$NODE_PATH"
-    fi
-
-    if [ -d "$PREFIX/opt/ant" ]
-    then
-        export ANT_HOME="$PREFIX/opt/ant"
-    fi
-
-    if [ -d "$PREFIX/opt/scala" ]
-    then
-        export SCALA_HOME="$PREFIX/opt/scala"
-        export PATH="$SCALA_HOME/bin:$PATH"
-    fi
 fi
 
 LINUXBREW_PREFIX="$HOME/.linuxbrew"
