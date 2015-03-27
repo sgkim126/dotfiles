@@ -24,6 +24,7 @@ if __name__ == '__main__':
             config.apt.ConfigApt(
                 'build-essential',
                 'clang',
+                'cmake',
                 'libpython2.7-dev'
             ).run()
     except Exception as ex:
