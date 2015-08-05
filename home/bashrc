@@ -148,4 +148,6 @@ then
     source "$HOME/.rvm/scripts/rvm"
 fi
 
+[[ -s "$HOME/.rsvm/rsvm.sh" ]] && . "$HOME/.rsvm/rsvm.sh" # This loads RSVM
+
 # vim:set ft=sh:
