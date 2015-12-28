@@ -5,6 +5,7 @@ import config.brew
 import config.cmake
 import config.curl
 import config.git
+import config.gitbin
 import config.home
 import config.libtool
 import config.node
@@ -96,7 +97,6 @@ if __name__ == '__main__':
             if confirm(msg):
                 config.apt.ConfigApt(
                     'build-essential',
-                    'git,'
                     'm4,',
                     'ruby',
                     'texinfo',
@@ -124,6 +124,12 @@ if __name__ == '__main__':
     try:
         if confirm('Do you want to install curl?(y/n) '):
             config.curl.ConfigCurl('curl-7_46_0').run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install git?(y/n) '):
+            config.gitbin.ConfigGit('v2.6.4').run()
     except Exception as ex:
         print(ex)
 
