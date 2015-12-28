@@ -2,6 +2,7 @@
 import config.apt
 import config.bin
 import config.brew
+import config.cmake
 import config.git
 import config.home
 import config.node
@@ -93,7 +94,6 @@ if __name__ == '__main__':
             if confirm(msg):
                 config.apt.ConfigApt(
                     'build-essential',
-                    'cmake',
                     'curl',
                     'git,'
                     'm4,',
@@ -106,6 +106,12 @@ if __name__ == '__main__':
                     'zlib1g-dev'
                 ).run()
             config.brew.ConfigBrew().run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install cmake?(y/n) '):
+            config.cmake.ConfigCmake('v3.4.1').run()
     except Exception as ex:
         print(ex)
 
