@@ -5,6 +5,7 @@ import config.brew
 import config.cmake
 import config.git
 import config.home
+import config.libtool
 import config.node
 import config.root
 import config.vim
@@ -112,6 +113,12 @@ if __name__ == '__main__':
     try:
         if confirm('Do you want to install cmake?(y/n) '):
             config.cmake.ConfigCmake('v3.4.1').run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install libtool?(y/n) '):
+            config.libtool.ConfigLibtool('v2.4.6').run()
     except Exception as ex:
         print(ex)
 
