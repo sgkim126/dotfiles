@@ -22,15 +22,14 @@ def ssh_keygen():
             break
 
 
-def clone_config_script():
+def clone_dotfiles():
     repo = os.path.join(os.getenv('HOME'), 'repo')
-    config_script = os.path.join(repo, 'config_script')
+    dotfiles = os.path.join(repo, 'dotfiles')
     make_if_not_exist(repo)
     subprocess.call(
-        ['git', 'clone', 'https://github.com/sgkim126/config_script.git',
-            config_script])
+        ['git', 'clone', 'https://github.com/sgkim126/dotfiles.git', dotfiles])
 
 
 if __name__ == '__main__':
     ssh_keygen()
-    clone_config_script()
+    clone_dotfiles()
