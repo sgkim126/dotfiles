@@ -4,6 +4,7 @@ import config.bin
 import config.brew
 import config.git
 import config.home
+import config.node
 import config.root
 import config.vim
 import config.xorg
@@ -105,5 +106,11 @@ if __name__ == '__main__':
                     'zlib1g-dev'
                 ).run()
             config.brew.ConfigBrew().run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install node?(y/n) '):
+            config.node.ConfigNode('v5.3.0').run()
     except Exception as ex:
         print(ex)
