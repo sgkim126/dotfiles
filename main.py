@@ -3,6 +3,7 @@ import config.apt
 import config.bin
 import config.brew
 import config.cmake
+import config.curl
 import config.git
 import config.home
 import config.libtool
@@ -95,13 +96,11 @@ if __name__ == '__main__':
             if confirm(msg):
                 config.apt.ConfigApt(
                     'build-essential',
-                    'curl',
                     'git,'
                     'm4,',
                     'ruby',
                     'texinfo',
                     'libbz2-dev',
-                    'libcurl4-openssl-dev',
                     'libexpat1-dev',
                     'libncurses5-dev',
                     'zlib1g-dev'
@@ -119,6 +118,12 @@ if __name__ == '__main__':
     try:
         if confirm('Do you want to install libtool?(y/n) '):
             config.libtool.ConfigLibtool('v2.4.6').run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install curl?(y/n) '):
+            config.curl.ConfigCurl('curl-7_46_0').run()
     except Exception as ex:
         print(ex)
 
