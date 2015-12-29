@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 import config.apt
 import config.bin
-import config.brew
 import config.cmake
 import config.curl
 import config.git
 import config.gitbin
 import config.home
 import config.libtool
+import config.libxml2
 import config.node
 import config.root
 import config.vim
@@ -92,20 +92,28 @@ if __name__ == '__main__':
         print(ex)
 
     try:
-        if confirm('Do you want to install brew?(y/n) '):
-            msg = 'Do you want to install packages for brew with sudo?(y/n)'
-            if confirm(msg):
-                config.apt.ConfigApt(
-                    'build-essential',
-                    'm4,',
-                    'ruby',
-                    'texinfo',
-                    'libbz2-dev',
-                    'libexpat1-dev',
-                    'libncurses5-dev',
-                    'zlib1g-dev'
-                ).run()
-            config.brew.ConfigBrew().run()
+        if confirm('Do you want to config Xorg with sudo?(y/n) '):
+            config.xorg.ConfigXorg(
+                'evoluent.conf',
+                'kensington-slimblade.conf'
+            ).run()
+    except Exception as ex:
+        print(ex)
+    try:
+        if confirm('Do you want to install virtualenv?(y/n) '):
+            config.virtualenv.ConfigVirtualenv('1.11.6').run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install ant?(y/n) '):
+            config.ant.ConfigAnt('ANT_194').run()
+    except Exception as ex:
+        print(ex)
+
+    try:
+        if confirm('Do you want to install scala?(y/n) '):
+            config.scala.ConfigScala('v2.11.2').run()
     except Exception as ex:
         print(ex)
 
