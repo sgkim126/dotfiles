@@ -33,8 +33,30 @@ if [ -d "$HOME/.root" ] ; then
     if [ -d "$PREFIX/lib" ] ; then
         export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
     fi
-fi
+    if [ -d "$PREFIX/include" ] ; then
+        export C_INCLUDE_PATH="$PREFIX/include:$C_INCLUDE_PATH"
+        export CPLUS_INCLUDE_PATH="$PREFIX/include:$CPLUS_INCLUDE_PATH"
+    fi
 
+    if [ -d "$PREFIX/share/man" ]
+    then
+        export MANPATH="$PREFIX/share/man:$MANPATH"
+    fi
+    if [ -d "$PREFIX/share/info" ]
+    then
+        export INFOPATH="$PREFIX/share/info:$INFOPATH"
+    fi
+
+    if [ -f "$PREFIX/etc/bash_completion.d/" ]
+    then
+        source "$PREFIX/etc/bash_completion.d/"
+    fi
+
+    if [ -d $PREFIX/opt/bin ]
+    then
+        export PATH="$LINUXBREW_PREFIX/opt/bin:$PATH"
+    fi
+fi
 
 export TZ='Asia/Seoul';
 
