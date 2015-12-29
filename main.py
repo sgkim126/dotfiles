@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import config.ant
 import config.apt
 import config.bin
 import config.cmake
@@ -10,7 +11,10 @@ import config.libtool
 import config.libxml2
 import config.node
 import config.root
+import config.sbt
+import config.scala
 import config.vim
+import config.virtualenv
 import config.xorg
 
 
