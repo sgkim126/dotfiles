@@ -8,7 +8,6 @@ import config.git
 import config.gitbin
 import config.home
 import config.libtool
-import config.libxml2
 import config.node
 import config.root
 import config.sbt
