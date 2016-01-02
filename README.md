@@ -1,3 +1,3 @@
-config_script
+dotfiles
 =============
-pep8 : [![Build Status](https://travis-ci.org/sgkim126/config_script.svg?branch=master)](https://travis-ci.org/sgkim126/config_script)
+Use it with https://github.com/sgkim126/init/
