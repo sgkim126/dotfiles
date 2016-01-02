@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import config.home
-import config.vim
 import config.xorg
 
 
@@ -34,11 +33,5 @@ if __name__ == '__main__':
                 'subversion',
                 'tmux.conf'
             ).run()
-    except Exception as ex:
-        print(ex)
-
-    try:
-        if confirm('Do you want to config vim?(y/n) '):
-            config.vim.ConfigVim('vimrc').run()
     except Exception as ex:
         print(ex)
