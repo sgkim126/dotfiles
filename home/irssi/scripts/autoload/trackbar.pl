@@ -1,1 +1,0 @@
-link /home/mobius/.irssi/scripts/trackbar.pl
