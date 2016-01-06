@@ -64,6 +64,16 @@ if [ -d "$HOME/.root" ] ; then
     then
         export PATH="$LINUXBREW_PREFIX/opt/bin:$PATH"
     fi
+
+    if [ -d "$PREFIX/go" ]
+    then
+        export GOPATH="$HOME/.go"
+        export GOROOT="$PREFIX/go"
+        if [ -d "$PREFIX/go/bin" ]
+        then
+            export PATH="$PREFIX/go/bin:$PATH"
+        fi
+    fi
 fi
 
 export TZ='Asia/Seoul';
