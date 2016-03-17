@@ -91,6 +91,12 @@ if [ -d "$HOME/.root" ] ; then
         export LD_LIBRARY_PATH="$PREFIX/cmake/lib:$LD_LIBRARY_PATH"
         export MANPATH="$PREFIX/cmake/man:$MANPATH"
     fi
+
+    if [ -d "$PREFIX/hadoop" ]
+    then
+        export HADOOP_HOME="$PREFIX/hadoop"
+        export PATH="$HADOOP_HOME/bin:$PATH"
+    fi
 fi
 
 export TZ='Asia/Seoul';
