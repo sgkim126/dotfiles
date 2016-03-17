@@ -84,6 +84,13 @@ if [ -d "$HOME/.root" ] ; then
         export C_INCLUDE_PATH="$PREFIX/node/include:$C_INCLUDE_PATH"
         export CPLUS_INCLUDE_PATH="$PREFIX/node/include:$CPLUS_INCLUDE_PATH"
     fi
+
+    if [ -d "$PREFIX/cmake" ]
+    then
+        export PATH="$PREFIX/cmake/bin:$PATH"
+        export LD_LIBRARY_PATH="$PREFIX/cmake/lib:$LD_LIBRARY_PATH"
+        export MANPATH="$PREFIX/cmake/man:$MANPATH"
+    fi
 fi
 
 export TZ='Asia/Seoul';
