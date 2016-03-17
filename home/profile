@@ -95,6 +95,11 @@ if [ -d "$HOME/.root" ] ; then
             export PATH="$ANT_HOME/bin:$PATH"
         fi
     fi
+
+    if [ -d "$PREFIX/node" ]
+    then
+        export PATH="$PREFIX/node/bin:$PATH"
+    fi
 fi
 
 export TZ='Asia/Seoul';
