@@ -77,6 +77,15 @@ if [ -d "$HOME/.root" ] ; then
             export PATH="$PREFIX/go/bin:$PATH"
         fi
     fi
+
+    if [ -d "$PREFIX/scala" ]
+    then
+        export SCALA_HOME="$PREFIX/scala"
+        if [ -d "$SCALA_HOME" ]
+        then
+            export PATH="$SCALA_HOME/bin:$PATH"
+        fi
+    fi
 fi
 
 export TZ='Asia/Seoul';
