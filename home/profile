@@ -65,17 +65,24 @@ if [ -d "$HOME/.root" ] ; then
     then
         export SCALA_HOME="$PREFIX/scala"
         export PATH="$SCALA_HOME/bin:$PATH"
+        export LD_LIBRARY_PATH="$SCALA_HOME/lib:$LD_LIBRARY_PATH"
+        export MANPATH="$SCALA_HOME/man:$MANPATH"
     fi
 
     if [ -d "$PREFIX/ant" ]
     then
         export ANT_HOME="$PREFIX/ant"
         export PATH="$ANT_HOME/bin:$PATH"
+        export LD_LIBRARY_PATH="$ANT_HOME/lib:$LD_LIBRARY_PATH"
     fi
 
     if [ -d "$PREFIX/node" ]
     then
         export PATH="$PREFIX/node/bin:$PATH"
+        export LD_LIBRARY_PATH="$PREFIX/node/lib:$LD_LIBRARY_PATH"
+        export MANPATH="$PREFIX/node/man:$MANPATH"
+        export C_INCLUDE_PATH="$PREFIX/node/include:$C_INCLUDE_PATH"
+        export CPLUS_INCLUDE_PATH="$PREFIX/node/include:$CPLUS_INCLUDE_PATH"
     fi
 fi
 
