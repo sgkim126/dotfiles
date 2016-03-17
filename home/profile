@@ -72,9 +72,9 @@ if [ -d "$HOME/.root" ] ; then
     then
         export GOPATH="$HOME/.go"
         export GOROOT="$PREFIX/go"
-        if [ -d "$PREFIX/go/bin" ]
+        if [ -d "$GOROOT/bin" ]
         then
-            export PATH="$PREFIX/go/bin:$PATH"
+            export PATH="$GOROOT/bin:$PATH"
         fi
     fi
 
