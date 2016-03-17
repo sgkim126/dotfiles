@@ -38,62 +38,39 @@ fi
 
 if [ -d "$HOME/.root" ] ; then
     export PREFIX="$HOME/.root"
-    if [ -d "$PREFIX/bin" ] ; then
-        export PATH="$PREFIX/bin:$PATH"
-    fi
-    if [ -d "$PREFIX/lib" ] ; then
-        export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
-    fi
-    if [ -d "$PREFIX/include" ] ; then
-        export C_INCLUDE_PATH="$PREFIX/include:$C_INCLUDE_PATH"
-        export CPLUS_INCLUDE_PATH="$PREFIX/include:$CPLUS_INCLUDE_PATH"
-    fi
 
-    if [ -d "$PREFIX/share/man" ]
-    then
-        export MANPATH="$PREFIX/share/man:$MANPATH"
-    fi
-    if [ -d "$PREFIX/share/info" ]
-    then
-        export INFOPATH="$PREFIX/share/info:$INFOPATH"
-    fi
+    export PATH="$PREFIX/bin:$PATH"
+
+    export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
+
+    export C_INCLUDE_PATH="$PREFIX/include:$C_INCLUDE_PATH"
+    export CPLUS_INCLUDE_PATH="$PREFIX/include:$CPLUS_INCLUDE_PATH"
+
+    export MANPATH="$PREFIX/share/man:$MANPATH"
+    export INFOPATH="$PREFIX/share/info:$INFOPATH"
 
     if [ -f "$PREFIX/etc/bash_completion.d/" ]
     then
         source "$PREFIX/etc/bash_completion.d/"
     fi
 
-    if [ -d $PREFIX/opt/bin ]
-    then
-        export PATH="$LINUXBREW_PREFIX/opt/bin:$PATH"
-    fi
-
     if [ -d "$PREFIX/go" ]
     then
         export GOPATH="$HOME/.go"
         export GOROOT="$PREFIX/go"
-        if [ -d "$GOROOT/bin" ]
-        then
-            export PATH="$GOROOT/bin:$PATH"
-        fi
+        export PATH="$GOROOT/bin:$PATH"
     fi
 
     if [ -d "$PREFIX/scala" ]
     then
         export SCALA_HOME="$PREFIX/scala"
-        if [ -d "$SCALA_HOME" ]
-        then
-            export PATH="$SCALA_HOME/bin:$PATH"
-        fi
+        export PATH="$SCALA_HOME/bin:$PATH"
     fi
 
     if [ -d "$PREFIX/ant" ]
     then
         export ANT_HOME="$PREFIX/ant"
-        if [ -d "$ANT_HOME" ]
-        then
-            export PATH="$ANT_HOME/bin:$PATH"
-        fi
+        export PATH="$ANT_HOME/bin:$PATH"
     fi
 
     if [ -d "$PREFIX/node" ]
