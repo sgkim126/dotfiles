@@ -25,7 +25,10 @@ if [ -d "$HOME/.rvm/bin" ] ; then
     export PATH="${PATH}:$HOME/.rvm/bin"
 fi
 
-if [ -d "/usr/lib/jvm/java-8-openjdk-amd64" ] ; then
+if [ -d "/usr/lib/jvm/java-9-oracle/" ] ; then
+    export JAVA_HOME="/usr/lib/jvm/java-9-oracle/"
+    export PATH="$JAVA_HOME/bin:$PATH"
+elif [ -d "/usr/lib/jvm/java-8-openjdk-amd64" ] ; then
     export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
     export PATH="$JAVA_HOME/bin:$PATH"
 elif [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then
