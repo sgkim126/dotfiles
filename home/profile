@@ -97,6 +97,12 @@ if [ -d "$HOME/.root" ] ; then
         export HADOOP_HOME="$PREFIX/hadoop"
         export PATH="$HADOOP_HOME/bin:$PATH"
     fi
+
+    if [ -d "$PREFIX/pyenv" ]
+    then
+        export PYENV_ROOT="$PREFIX/pyenv"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+    fi
 fi
 
 export TZ='Asia/Seoul';
