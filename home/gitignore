@@ -4,4 +4,5 @@ Session.vim
 .netrwhist
 .idea/
 ENV/
+.python-version
 tags
