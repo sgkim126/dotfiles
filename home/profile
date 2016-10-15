@@ -16,9 +16,9 @@ if [ "$PS1" ]; then
     fi
 fi
 
-if [ -f "$HOME/.bash_completion" ]
+if [ -f "$HOME/.bash_complete.d" ]
 then
-    source "$HOME/.bash_completion"
+    source "$HOME/.bash_complete.d"
 fi
 
 if [ -d "$HOME/.rvm/bin" ] ; then
