@@ -150,9 +150,9 @@ fi
 
 [[ -s "$HOME/.rsvm/rsvm.sh" ]] && . "$HOME/.rsvm/rsvm.sh" # This loads RSVM
 
-# vim:set ft=sh:
-
 if [ -f "$HOME/.bash_local" ]
 then
     source "$HOME/.bash_local"
 fi
+
+# vim:set ft=sh:
