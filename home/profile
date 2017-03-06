@@ -43,8 +43,11 @@ if [ -d "$HOME/.root" ] ; then
 
     export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
 
-    export C_INCLUDE_PATH="$PREFIX/include:$C_INCLUDE_PATH"
-    export CPLUS_INCLUDE_PATH="$PREFIX/include:$CPLUS_INCLUDE_PATH"
+    if [ -d "$PREFIX/include" ]
+    then
+        export C_INCLUDE_PATH="$PREFIX/include:$C_INCLUDE_PATH"
+        export CPLUS_INCLUDE_PATH="$PREFIX/include:$CPLUS_INCLUDE_PATH"
+    fi
 
     export MANPATH="$PREFIX/share/man:$MANPATH"
     export INFOPATH="$PREFIX/share/info:$INFOPATH"
