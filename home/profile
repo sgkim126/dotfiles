@@ -111,4 +111,8 @@ fi
 
 export TZ='Asia/Seoul';
 
+if [ -d "$HOME/.cargo/bin" ]
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 # vim:set ft=sh:
