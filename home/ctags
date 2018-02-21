@@ -52,3 +52,13 @@
 --regex-typescript=/^[ \t]*(export)?[ \t]*(public|private)[ \t]+(static)?[ \t]*([a-zA-Z0-9_]+)/\4/m,members/
 --regex-typescript=/^[ \t]*(export)?[ \t]*interface[ \t]+([a-zA-Z0-9_]+)/\2/i,interfaces/
 --regex-typescript=/^[ \t]*(export)?[ \t]*enum[ \t]+([a-zA-Z0-9_]+)/\2/e,enums/
+
+--langdef=Solidity
+--langmap=Solidity:.sol
+--regex-Solidity=/^contract[ \t]+([a-zA-Z0-9_]+)/\1/c,contract/
+--regex-Solidity=/[ \t]*function[ \t]+([a-zA-Z0-9_]+)/\1/f,function/
+--regex-Solidity=/[ \t]*event[ \t]+([a-zA-Z0-9_]+)/\1/e,event/
+--regex-Solidity=/[ \t]*(struct[ \t]+[a-zA-Z0-9_]+)([ \t]*\{)/\1/v,variable/
+--regex-Solidity=/[ \t]*(enum[ \t]+[a-zA-Z0-9_]+)([ \t]*\{)/\1/v,variable/
+--regex-Solidity=/[ \t]*mapping[ \t]+\(([a-zA-Z0-9_]+)[ \t]*=>[ \t]*([a-zA-Z0-9_]+)\)[ \t]+([a-zA-Z0-9_]+)/\3
+(\1=>\2)/m,mapping/
