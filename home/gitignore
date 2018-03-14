@@ -6,3 +6,6 @@ Session.vim
 ENV/
 .python-version
 tags
+
+# Clion
+cmake-build-debug/
