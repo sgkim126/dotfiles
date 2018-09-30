@@ -58,6 +58,10 @@ then
     export PATH="$GOPATH/bin:$PATH"
 fi
 
+if [ -d "$HOME/.root/bin" ] ; then
+    export PATH="$HOME/.root/bin:$PATH"
+fi
+
 export TZ='Asia/Seoul';
 
 if [ -d "$HOME/.cargo/bin" ]
