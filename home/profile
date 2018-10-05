@@ -27,9 +27,6 @@ then
     export PATH="$LINUXBREW/bin:$PATH"
     export MANPATH="$($LINUXBREW/bin/brew --prefix)/share/man:$MANPATH"
     export INFOPATH="$($LINUXBREW/bin/brew --prefix)/share/info:$INFOPATH"
-    export LD_LIBRARY_PATH="$($LINUXBREW/bin/brew --prefix)/lib:$LD_LIBRARY_PATH"
-    export C_INCLUDE_PATH="$($LINUXBREW/bin/brew --prefix)/include:$C_INCLUDE_PATH"
-    export CPLUS_INCLUDE_PATH="$($LINUXBREW/bin/brew --prefix)/include:$CPLUS_INCLUDE_PATH"
 
     if [ -e "$LINUXBREW/bin/pyenv" ] ; then
         eval "$($LINUXBREW/bin/pyenv init -)"
