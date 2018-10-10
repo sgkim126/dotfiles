@@ -31,6 +31,9 @@ then
     if [ -e "$LINUXBREW/bin/pyenv" ] ; then
         eval "$($LINUXBREW/bin/pyenv init -)"
     fi
+    if [ -e "$LINUXBREW/bin/yarn" ] ; then
+        export PATH="$($LINUXBREW/bin/yarn global bin):$PATH"
+    fi
 fi
 unset LINUXBREW
 
