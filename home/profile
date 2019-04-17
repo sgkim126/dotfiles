@@ -28,8 +28,11 @@ then
     export MANPATH="$($LINUXBREW/bin/brew --prefix)/share/man:$MANPATH"
     export INFOPATH="$($LINUXBREW/bin/brew --prefix)/share/info:$INFOPATH"
 
-    if [ -e "$LINUXBREW/bin/pyenv" ] ; then
-        eval "$($LINUXBREW/bin/pyenv init -)"
+    if which pyenv > /dev/null; then
+        eval "$(pyenv init -)"
+    fi
+    if which pyenv-virtualenv-init > /dev/null; then
+        eval "$(pyenv virtualenv-init -)"
     fi
     if [ -e "$LINUXBREW/bin/yarn" ] ; then
         export PATH="$($LINUXBREW/bin/yarn global bin):$PATH"
