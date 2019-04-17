@@ -37,6 +37,9 @@ then
     if [ -e "$LINUXBREW/bin/yarn" ] ; then
         export PATH="$($LINUXBREW/bin/yarn global bin):$PATH"
     fi
+    if [ -d "$LINUXBREW/opt/go/libexec/bin" ] ; then
+        export PATH="$PATH:$LINUXBREW/opt/go/libexec/bin"
+    fi
 fi
 unset LINUXBREW
 
