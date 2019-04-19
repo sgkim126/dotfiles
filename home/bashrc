@@ -155,4 +155,21 @@ then
     source "$HOME/.bash_local"
 fi
 
+if [ $(which mate-screensaver-command) ]
+then
+    iwillplayfor() {
+        echo "mate-screensaver-command --lock" | at now + $1 $2
+    }
+    iwillplayuntil() {
+        echo "mate-screensaver-command --lock" | at $@
+    }
+elif [ $(which gnome-screensaver-command) ]
+then
+    iwillplayfor() {
+        echo "gnome-screensaver-command --lock" | at now + $1 $2
+    }
+    iwillplayuntil() {
+        echo "mate-screensaver-command --lock" | at $@
+    }
+fi
 # vim:set ft=sh:
