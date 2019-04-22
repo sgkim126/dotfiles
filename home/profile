@@ -40,6 +40,13 @@ then
     if [ -d "$LINUXBREW/opt/go/libexec/bin" ] ; then
         export PATH="$PATH:$LINUXBREW/opt/go/libexec/bin"
     fi
+
+    if [ -d "$HOME/.nvm" ] ; then
+        export NVM_DIR="$HOME/.nvm"
+    fi
+    if [ -f "$LINUXBREW/opt/nvm/nvm.sh" ] ; then
+        source "$LINUXBREW/opt/nvm/nvm.sh"
+    fi
 fi
 unset LINUXBREW
 
