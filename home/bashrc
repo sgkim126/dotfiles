@@ -169,7 +169,7 @@ then
         echo "gnome-screensaver-command --lock" | at now + $1 $2
     }
     iwillplayuntil() {
-        echo "mate-screensaver-command --lock" | at $@
+        echo "gnome-screensaver-command --lock" | at $@
     }
 fi
 # vim:set ft=sh:
