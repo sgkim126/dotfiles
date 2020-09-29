@@ -7,13 +7,7 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines in the history. See bash(1) for more options
-if [ "$HISTCONTROL" = "ignorespace" ]
-then
-    export HISTCONTROL=ignoreboth
-else
-    export HISTCONTROL=ignoredups
-fi
+HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
