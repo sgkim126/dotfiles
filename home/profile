@@ -21,12 +21,13 @@ then
     source "$HOME/.bash_complete.d"
 fi
 
-LINUXBREW="$HOME/.linuxbrew"
-if [ -d "$LINUXBREW" ]
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+if [ -d "$HOMEBREW_PREFIX" ]
 then
-    export PATH="$LINUXBREW/bin:$PATH"
-    export MANPATH="$($LINUXBREW/bin/brew --prefix)/share/man:$MANPATH"
-    export INFOPATH="$($LINUXBREW/bin/brew --prefix)/share/info:$INFOPATH"
+    export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+    export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+    export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
+    export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
 
     if which pyenv > /dev/null; then
         eval "$(pyenv init -)"
@@ -34,21 +35,20 @@ then
     if which pyenv-virtualenv-init > /dev/null; then
         eval "$(pyenv virtualenv-init -)"
     fi
-    if [ -e "$LINUXBREW/bin/yarn" ] ; then
-        export PATH="$($LINUXBREW/bin/yarn global bin):$PATH"
+    if [ -e "$HOMEBREW_PREFIX/bin/yarn" ] ; then
+        export PATH="$($HOMEBREW_PREFIX/bin/yarn global bin):$PATH"
     fi
-    if [ -d "$LINUXBREW/opt/go/libexec/bin" ] ; then
-        export PATH="$PATH:$LINUXBREW/opt/go/libexec/bin"
+    if [ -d "$HOMEBREW_PREFIX/opt/go/libexec/bin" ] ; then
+        export PATH="$PATH:$HOMEBREW_PREFIX/opt/go/libexec/bin"
     fi
 
     if [ -d "$HOME/.nvm" ] ; then
         export NVM_DIR="$HOME/.nvm"
     fi
-    if [ -f "$LINUXBREW/opt/nvm/nvm.sh" ] ; then
-        source "$LINUXBREW/opt/nvm/nvm.sh"
+    if [ -f "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] ; then
+        source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
     fi
 fi
-unset LINUXBREW
 
 if [ -d "$HOME/.rvm/bin" ] ; then
     export PATH="${PATH}:$HOME/.rvm/bin"
@@ -84,3 +84,5 @@ then
 fi
 
 # vim:set ft=sh:
+
+export PATH="$HOME/.cargo/bin:$PATH"
