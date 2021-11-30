@@ -21,35 +21,6 @@ then
     source "$HOME/.bash_complete.d"
 fi
 
-export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
-if [ -d "$HOMEBREW_PREFIX" ]
-then
-    export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
-    export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
-    export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
-    export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
-
-    if which pyenv > /dev/null; then
-        eval "$(pyenv init -)"
-    fi
-    if which pyenv-virtualenv-init > /dev/null; then
-        eval "$(pyenv virtualenv-init -)"
-    fi
-    if [ -e "$HOMEBREW_PREFIX/bin/yarn" ] ; then
-        export PATH="$($HOMEBREW_PREFIX/bin/yarn global bin):$PATH"
-    fi
-    if [ -d "$HOMEBREW_PREFIX/opt/go/libexec/bin" ] ; then
-        export PATH="$PATH:$HOMEBREW_PREFIX/opt/go/libexec/bin"
-    fi
-
-    if [ -d "$HOME/.nvm" ] ; then
-        export NVM_DIR="$HOME/.nvm"
-    fi
-    if [ -f "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] ; then
-        source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
-    fi
-fi
-
 if [ -d "$HOME/.rvm/bin" ] ; then
     export PATH="${PATH}:$HOME/.rvm/bin"
 fi
@@ -63,13 +34,6 @@ elif [ -d "/usr/lib/jvm/java-8-openjdk-amd64" ] ; then
 elif [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then
     export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
     export PATH="$JAVA_HOME/bin:$PATH"
-fi
-
-if [ -d "$HOME/.go" ]
-then
-    export GOPATH="$HOME/.go"
-    export GOROOT="$(brew --prefix go)/libexec"
-    export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 fi
 
 if [ -d "$HOME/.root/bin" ] ; then
@@ -86,3 +50,7 @@ fi
 # vim:set ft=sh:
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ] ; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
