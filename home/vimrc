@@ -14,6 +14,12 @@ imap <DOWN> <C-O>gj
 map <UP> gk
 map <DOWN> gj
 
+" Resize windows
+nnoremap <leader>+ :resize +4<CR>
+nnoremap <leader>- :resize -4<CR>
+nnoremap <leader>< :vertical resize -4<CR>
+nnoremap <leader>> :vertical resize +4<CR>
+
 set mps+=<:>
 
 set nocompatible
