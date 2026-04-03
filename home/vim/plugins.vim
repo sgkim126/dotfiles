@@ -20,9 +20,11 @@ if !has('nvim')
 endif
 
 
-" python
-Plug 'vim-scripts/python.vim--Vasiliev'
-Plug 'jmcantrell/vim-virtualenv'
+" Python
+if !has('nvim')
+  Plug 'vim-scripts/python.vim--Vasiliev'
+  Plug 'jmcantrell/vim-virtualenv'
+endif
 
 if !has('nvim')
   if executable('ag')
@@ -34,55 +36,75 @@ endif
 
 Plug 'kshenoy/vim-signature'
 
-" markdown
+" Markdown
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
+if !has('nvim')
+  Plug 'plasticboy/vim-markdown'
+  let g:vim_markdown_folding_disabled=1
+endif
 
-" scala
-Plug 'derekwyatt/vim-scala'
+" Scala
+if !has('nvim')
+  Plug 'derekwyatt/vim-scala'
+endif
 
-" c++
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-jp/cpp-vim'
-Plug 'phlip9/google-vim_cpp_indent'
+" C++
+if !has('nvim')
+  Plug 'octol/vim-cpp-enhanced-highlight'
+  Plug 'vim-jp/cpp-vim'
+  Plug 'phlip9/google-vim_cpp_indent'
+endif
 
-" shader language
-Plug 'tikhomirov/vim-glsl'
+" Shading language
+if !has('nvim')
+  Plug 'tikhomirov/vim-glsl'
+endif
 
-" javascript
-Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'jason0x43/vim-js-indent'
-
-" TypeScript
-Plug 'leafgarland/typescript-vim'
+" JavaScript/TypeScript/React
+if !has('nvim')
+  Plug 'pangloss/vim-javascript'
+  Plug 'jelera/vim-javascript-syntax'
+  Plug 'jason0x43/vim-js-indent'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'mxw/vim-jsx'
+endif
 
 " Web
-Plug 'othree/html5.vim'
-Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
+if !has('nvim')
+  Plug 'othree/html5.vim'
+  Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
+  Plug 'wavded/vim-stylus'
+endif
 Plug 'skammer/vim-css-color'
-Plug 'wavded/vim-stylus'
-
-" React.js
-Plug 'mxw/vim-jsx'
 
 " Rust
-Plug 'rust-lang/rust.vim'
+if !has('nvim')
+  Plug 'rust-lang/rust.vim'
+endif
 
 " Go
-Plug 'fatih/vim-go'
+if !has('nvim')
+  Plug 'fatih/vim-go'
+endif
 
-" lex, yacc
-Plug 'justinmk/vim-syntax-extra'
+" Lex & Yacc
+if !has('nvim')
+  Plug 'justinmk/vim-syntax-extra'
+endif
 
 " Kotlin
-Plug 'udalov/kotlin-vim'
+if !has('nvim')
+  Plug 'udalov/kotlin-vim'
+endif
 
-" solidity
-Plug 'tomlion/vim-solidity'
+" Solidity
+if !has('nvim')
+  Plug 'tomlion/vim-solidity'
+endif
 
-" elm
-Plug 'lambdatoast/elm.vim'
+" Elm
+if !has('nvim')
+  Plug 'lambdatoast/elm.vim'
+endif
 
 call plug#end()
