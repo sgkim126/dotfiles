@@ -58,6 +58,30 @@ return {
           end
         end,
       })
+
+      -- LSP 단축키 설정 (LSP가 파일에 연결될 때 자동으로 적용됨)
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local opts = { buffer = args.buf }
+
+          -- ctags 스타일 탐색 (Ctrl-] 정의 이동 / Ctrl-t 복귀)
+          vim.bo[args.buf].tagfunc = "v:lua.vim.lsp.tagfunc"
+
+          vim.keymap.set('n', '<leader>K',  vim.lsp.buf.hover, opts) -- 정보 확인
+
+          vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, opts)      -- 정의 이동
+          vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, opts)     -- 선언 이동
+          vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)      -- 참조 확인
+          vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, opts)  -- 구현 이동
+          vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, opts) -- 타입 정의 이동
+
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts) -- 이름 변경(Rename)
+          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts) -- 코드 액션
+          vim.keymap.set('n', '<leader>f', function() -- 코드 포맷팅
+            vim.lsp.buf.format { async = true }
+          end, opts)
+        end,
+      })
     end,
   },
 }
