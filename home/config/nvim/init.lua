@@ -1,4 +1,12 @@
 -- Source ~/.vimrc
+local vim_dir = vim.fn.expand("~/.vim")
+vim.opt.rtp:prepend(vim_dir)
+
+local plug_path = vim_dir .. "/autoload/plug.vim"
+if vim.fn.filereadable(plug_path) == 1 then
+    vim.cmd("source " .. plug_path)
+end
+
 vim.cmd("source " .. vim.fn.expand("~/.vimrc"))
 
 -- Bootstrap lazy.nvim
