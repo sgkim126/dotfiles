@@ -17,16 +17,7 @@ if !has('nvim')
   let g:indent_guides_enable_on_vim_startup = 1
 
   Plug 'editorconfig/editorconfig-vim'
-endif
 
-
-" Python
-if !has('nvim')
-  Plug 'vim-scripts/python.vim--Vasiliev'
-  Plug 'jmcantrell/vim-virtualenv'
-endif
-
-if !has('nvim')
   if executable('ag')
     Plug 'epmatsw/ag.vim'
   elseif executable('ack')
@@ -35,6 +26,12 @@ if !has('nvim')
 endif
 
 Plug 'kshenoy/vim-signature'
+
+" Python
+if !has('nvim')
+  Plug 'vim-scripts/python.vim--Vasiliev'
+  Plug 'jmcantrell/vim-virtualenv'
+endif
 
 " Markdown
 Plug 'godlygeek/tabular'
