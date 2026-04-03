@@ -29,7 +29,8 @@ Plug 'kshenoy/vim-signature'
 
 " Python
 if !has('nvim')
-  Plug 'vim-scripts/python.vim--Vasiliev'
+  Plug 'vim-python/python-syntax'
+  let g:python_highlight_all = 1
   Plug 'jmcantrell/vim-virtualenv'
 endif
 
@@ -63,7 +64,7 @@ if !has('nvim')
   Plug 'jelera/vim-javascript-syntax'
   Plug 'jason0x43/vim-js-indent'
   Plug 'leafgarland/typescript-vim'
-  Plug 'mxw/vim-jsx'
+  Plug 'MaxMEllon/vim-jsx-pretty'
 endif
 
 " Web
@@ -72,7 +73,7 @@ if !has('nvim')
   Plug 'chrisyip/Better-CSS-Syntax-for-Vim'
   Plug 'wavded/vim-stylus'
 endif
-Plug 'skammer/vim-css-color'
+Plug 'ap/vim-css-color'
 
 " Rust
 if !has('nvim')
