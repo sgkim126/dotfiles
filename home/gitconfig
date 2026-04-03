@@ -1,2 +1,6 @@
-[includeIf "gitdir:~/workspace/work/**"]
-    path = ~/workspace/work/.gitconfig
+[color]
+	ui = auto
+[core]
+	editor = vim
+[diff]
+	noprefix = true
