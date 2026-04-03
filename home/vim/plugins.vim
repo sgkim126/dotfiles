@@ -1,25 +1,12 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/vundle'
-
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-
-Plug 'vim-scripts/a.vim'
-
 Plug 'vim-scripts/diffchar.vim'
-
-Plug 'caglartoklu/ftcolor.vim'
-
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
 
 Plug 'tpope/vim-fugitive'
 
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 
-Plug 'majutsushi/tagbar'
 
 Plug 'editorconfig/editorconfig-vim'
 
