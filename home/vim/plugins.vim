@@ -1,5 +1,13 @@
 call plug#begin('~/.vim/plugged')
 
+if !has('nvim')
+  " LSP Support for Vim
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+endif
+
 Plug 'vim-scripts/diffchar.vim'
 
 Plug 'tpope/vim-fugitive'
