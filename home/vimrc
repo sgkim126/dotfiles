@@ -35,8 +35,6 @@ set nobackup
 
 set showmatch
 
-set tags=tags;
-
 set cindent
 set smartindent
 
