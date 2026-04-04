@@ -22,6 +22,7 @@ nnoremap <leader>> :vertical resize +4<CR>
 
 set mps+=<:>
 
+set mouse=
 set nocompatible
 set backspace=indent,eol,start
 set startofline
