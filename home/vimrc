@@ -6,6 +6,10 @@ if filereadable(expand("~/.vim/config/keymaps.vim"))
     source ~/.vim/config/keymaps.vim
 endif
 
+if filereadable(expand("~/.vim/config/lsp.vim"))
+    source ~/.vim/config/lsp.vim
+endif
+
 filetype off
 
 if filereadable(expand("~/.vim/plugins.vim"))
