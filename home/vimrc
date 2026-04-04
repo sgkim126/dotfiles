@@ -38,6 +38,8 @@ set nonumber
 
 set swapfile
 set nobackup
+set undofile
+set undodir=~/.vim/undo
 
 set showmatch
 
