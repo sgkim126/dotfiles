@@ -42,6 +42,9 @@ set nobackup
 set undofile
 set undodir=~/.vim/undo
 
+set splitright
+set splitbelow
+
 set showmatch
 
 set cindent
