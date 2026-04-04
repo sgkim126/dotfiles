@@ -1,67 +1,15 @@
-set all&
+if filereadable(expand("~/.vim/config/options.vim"))
+    source ~/.vim/config/options.vim
+endif
 
-colorscheme elflord
-
-set wrap
-
-set history=100
-
-vmap <Tab> >gv
-vmap <S-Tab> <gv
-
-imap <UP> <C-O>gk
-imap <DOWN> <C-O>gj
-map <UP> gk
-map <DOWN> gj
-
-" Resize windows
-nnoremap <leader>+ :resize +4<CR>
-nnoremap <leader>- :resize -4<CR>
-nnoremap <leader>< :vertical resize -4<CR>
-nnoremap <leader>> :vertical resize +4<CR>
-
-set mps+=<:>
-
-set mouse=
-set nocompatible
-set backspace=indent,eol,start
-set startofline
-
-set hlsearch
-set incsearch
-set nowrapscan
-
-set wildmenu
-set showcmd
-
-set ruler
-set nonumber
-
-set swapfile
-set nobackup
-set undofile
-set undodir=~/.vim/undo
-
-set splitright
-set splitbelow
-
-set showmatch
-
-set cindent
-set smartindent
-set breakindent
-
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-
-set textwidth=119
+if filereadable(expand("~/.vim/config/keymaps.vim"))
+    source ~/.vim/config/keymaps.vim
+endif
 
 filetype off
 
-if filereadable(expand("\~/.vim/plugins.vim"))
-    source \~/.vim/plugins.vim
+if filereadable(expand("~/.vim/plugins.vim"))
+    source ~/.vim/plugins.vim
 endif
 
 filetype plugin indent on
