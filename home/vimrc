@@ -46,6 +46,7 @@ set showmatch
 
 set cindent
 set smartindent
+set breakindent
 
 set expandtab
 set shiftwidth=4
