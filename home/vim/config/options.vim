@@ -43,3 +43,11 @@ set tabstop=4
 
 " Formatting
 set textwidth=119
+
+" Trailing whitespace highlighting
+highlight default link TrailingWhitespace Error
+match TrailingWhitespace /\s\+$/
+autocmd BufWinEnter * match TrailingWhitespace /\s\+$/
+autocmd InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match TrailingWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
