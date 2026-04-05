@@ -1,0 +1,11 @@
+# Load environment variables
+if [ -f "$HOME/.profile" ]
+then
+    . "$HOME/.profile"
+fi
+
+# Load interactive settings
+if [ -f "$HOME/.bashrc" ]
+then
+    . "$HOME/.bashrc"
+fi
