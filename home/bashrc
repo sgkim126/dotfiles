@@ -29,7 +29,7 @@ then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-source ~/.bash_color
+. ~/.bash_color
 
 alias rm='rm -i'
 alias cp='cp -i'
@@ -76,19 +76,19 @@ fi
 
 if [ -f /etc/bash_completion ]
 then
-    source /etc/bash_completion
+    . /etc/bash_completion
 fi
 
 if [ -f "$HOME/.rvm/scripts/rvm" ]
 then
-    source "$HOME/.rvm/scripts/rvm"
+    . "$HOME/.rvm/scripts/rvm"
 fi
 
 [[ -s "$HOME/.rsvm/rsvm.sh" ]] && . "$HOME/.rsvm/rsvm.sh" # This loads RSVM
 
 if [ -f "$HOME/.bash_local" ]
 then
-    source "$HOME/.bash_local"
+    . "$HOME/.bash_local"
 fi
 
 if [ $(which mate-screensaver-command) ]

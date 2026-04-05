@@ -10,7 +10,7 @@ fi
 
 if [ -f "$HOME/.bash_complete.d" ]
 then
-    source "$HOME/.bash_complete.d"
+    . $HOME/.bash_complete.d/*
 fi
 
 if [ -d "$HOME/.rvm/bin" ] ; then
