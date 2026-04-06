@@ -30,13 +30,26 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    # Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
-    if type -P dircolors >/dev/null ; then
-        if [[ -f ~/.dir_colors ]] ; then
-            eval $(dircolors -b ~/.dir_colors)
-        elif [[ -f /etc/DIR_COLORS ]] ; then
-            eval $(dircolors -b /etc/DIR_COLORS)
+    # Enable colors for ls, etc.
+    if [ "$(uname)" = "Darwin" ]
+    then # macOS (BSD ls)
+        export CLICOLOR=1
+        export LSCOLORS=ExGxfxdxCxDxDxhbadbxcx
+        alias ls='ls -GFh'
+    else # Linux / Other (GNU ls)
+        if type -P dircolors >/dev/null
+        then
+            if [ -f ~/.dir_colors ]
+            then
+                eval $(dircolors -b ~/.dir_colors)
+            elif [ -f /etc/DIR_COLORS ]
+            then
+                eval $(dircolors -b /etc/DIR_COLORS)
+            else
+                eval $(dircolors -b)
+            fi
         fi
+        alias ls='ls --color=auto -Fh'
     fi
     # red=31 green=32 yellow=33 blue=34 purple=35 cyan=36 white=37
     PS1="\[\033[01;34m\]["
@@ -56,16 +69,10 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto -X'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+# enable color support for grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
 
 # vim:set ft=sh:
