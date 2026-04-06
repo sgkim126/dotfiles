@@ -8,11 +8,6 @@ if [ "$PS1" ]; then
     fi
 fi
 
-if [ -f "$HOME/.bash_complete.d" ]
-then
-    . $HOME/.bash_complete.d/*
-fi
-
 if [ -d "$HOME/.rvm/bin" ] ; then
     export PATH="${PATH}:$HOME/.rvm/bin"
 fi

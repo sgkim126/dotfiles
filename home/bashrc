@@ -78,6 +78,17 @@ if [ -f /etc/bash_completion ]
 then
     . /etc/bash_completion
 fi
+if [ -d "$HOME/.bash_complete.d" ]
+then
+    for f in "$HOME/.bash_complete.d/"*; do
+        [ -f "$f" ] && . "$f"
+    done
+fi
+if [ -f /opt/homebrew/etc/bash_completion ]
+then
+    . /opt/homebrew/etc/bash_completion
+fi
+
 
 if [ -f "$HOME/.rvm/scripts/rvm" ]
 then
