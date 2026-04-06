@@ -35,8 +35,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias vi='nvim'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -45,7 +43,14 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-export EDITOR=/usr/bin/vim
+# Set EDITOR to nvim if available, otherwise fallback to vim
+if command -v nvim >/dev/null 2>&1; then
+    export EDITOR='nvim'
+    alias vi='nvim'
+else
+    export EDITOR='vim'
+    alias vi='vim'
+fi
 
 export LANG='ko_KR.UTF-8'
 export LC_ADDRESS='ko_KR.UTF-8'
