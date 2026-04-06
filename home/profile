@@ -1,7 +1,7 @@
 if [ "$PS1" ]; then
     if [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
         : # do nothing
-    elif [ "`id -u`" -eq 0 ]; then
+    elif [ "$(id -u)" -eq 0 ]; then
         PS1='# '
     else
         PS1='$ '
