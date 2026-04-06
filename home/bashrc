@@ -52,17 +52,10 @@ else
     alias vi='vim'
 fi
 
+# Locale settings - Safer approach for SSH
 export LANG='ko_KR.UTF-8'
-export LC_ADDRESS='ko_KR.UTF-8'
-export LC_IDENTIFICATION='ko_KR.UTF-8'
-export LC_MEASUREMENT='ko_KR.UTF-8'
-export LC_MONETARY='ko_KR.UTF-8'
-export LC_NAME='ko_KR.UTF-8'
-export LC_NUMERIC='ko_KR.UTF-8'
-export LC_PAPER='ko_KR.UTF-8'
-export LC_TELEPHONE='ko_KR.UTF-8'
-export LC_TIME='ko_KR.UTF-8'
-export MDM_LANG='ko_KR.UTF-8'
+# Only set other LC_* if they are likely to be supported or specifically needed
+# export LC_ALL='ko_KR.UTF-8'
 
 umask 022
 
