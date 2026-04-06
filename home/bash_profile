@@ -9,3 +9,5 @@ if [ -f "$HOME/.bashrc" ]
 then
     . "$HOME/.bashrc"
 fi
+
+# vim:set ft=sh:

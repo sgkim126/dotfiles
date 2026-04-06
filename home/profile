@@ -39,8 +39,6 @@ then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# vim:set ft=sh:
-
 export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ] ; then
@@ -48,3 +46,5 @@ if [ -f /home/linuxbrew/.linuxbrew/bin/brew ] ; then
 elif [ -f /opt/homebrew/bin/brew ] ; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# vim:set ft=sh:
