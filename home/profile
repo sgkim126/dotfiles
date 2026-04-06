@@ -34,12 +34,10 @@ fi
 
 export TZ='Asia/Seoul';
 
-if [ -d "$HOME/.cargo/bin" ]
+if [ -f "$HOME/.cargo/env" ]
 then
-    export PATH="$HOME/.cargo/bin:$PATH"
+    . "$HOME/.cargo/env"
 fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ] ; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
