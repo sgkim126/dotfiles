@@ -109,6 +109,3 @@ then
     }
 fi
 # vim:set ft=sh:
-
-# added by travis gem
-[ -f /home/sgkim126/.travis/travis.sh ] && source /home/sgkim126/.travis/travis.sh
