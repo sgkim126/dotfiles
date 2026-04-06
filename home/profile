@@ -12,14 +12,22 @@ if [ -d "$HOME/.rvm/bin" ] ; then
     export PATH="${PATH}:$HOME/.rvm/bin"
 fi
 
-if [ -d "/usr/lib/jvm/java-9-oracle/" ] ; then
-    export JAVA_HOME="/usr/lib/jvm/java-9-oracle/"
-    export PATH="$JAVA_HOME/bin:$PATH"
-elif [ -d "/usr/lib/jvm/java-8-openjdk-amd64" ] ; then
-    export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-    export PATH="$JAVA_HOME/bin:$PATH"
-elif [ -d "/usr/lib/jvm/java-7-openjdk-amd64" ] ; then
-    export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
+if [ "$(uname)" = "Darwin" ]
+then # Dynamic JAVA_HOME detection
+    if [ -x /usr/libexec/java_home ]
+    then
+        export JAVA_HOME=$(/usr/libexec/java_home)
+    fi
+else # Linux Java paths (OpenJDK)
+    # Find all OpenJDK directories, sort by version, and pick the latest one
+    latest_jvm=$(ls -d /usr/lib/jvm/java-*-openjdk-* 2>/dev/null | sort -V | tail -n 1)
+    if [ -d "$latest_jvm" ]
+    then
+        export JAVA_HOME="$latest_jvm"
+    fi
+fi
+
+if [ -n "$JAVA_HOME" ]; then
     export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
