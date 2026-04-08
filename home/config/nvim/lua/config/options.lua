@@ -1,3 +1,5 @@
+vim.cmd("colorscheme vim")
+
 -- Git commit message rules
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
