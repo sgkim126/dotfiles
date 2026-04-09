@@ -13,7 +13,7 @@ confirm() {
   local message="$1"
   local answer
   while true; do
-    read -rp "${message} (y/n) " answer
+    read -rp "${message} (y/n) " answer || true
     case "${answer}" in
       y) return 0 ;;
       n) return 1 ;;
@@ -120,15 +120,15 @@ EOF
   fi
 
   local name email github_user
-  read -rp "Enter your name for git: " name
+  read -rp "Enter your name for git: " name || true
   if [[ -n "${name}" ]]; then
     git config --file "${git_config}" user.name "${name}"
   fi
-  read -rp "Enter your email for git: " email
+  read -rp "Enter your email for git: " email || true
   if [[ -n "${email}" ]]; then
     git config --file "${git_config}" user.email "${email}"
   fi
-  read -rp "Enter your github username: " github_user
+  read -rp "Enter your github username: " github_user || true
   if [[ -n "${github_user}" ]]; then
     git config --file "${git_config}" github.user "${github_user}"
   fi
@@ -137,7 +137,7 @@ EOF
 config_editor() {
   local choice
   while true; do
-    read -rp "Which editor do you want to configure? (nvim/vim/no) " choice
+    read -rp "Which editor do you want to configure? (nvim/vim/no) " choice || true
     case "${choice}" in
       nvim | vim | no) break ;;
       *) echo "Please enter nvim, vim, or no." ;;
