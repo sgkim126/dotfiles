@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+readonly PREFIX="${HOME}/.root"
+
 err() {
   echo "[ERROR] $*" >&2
 }
@@ -39,8 +41,25 @@ install_packages() {
   esac
 }
 
+initialize_root() {
+  if ! confirm "Do you want to initialize \${HOME}/.root directory?"; then
+    return
+  fi
+  mkdir -p \
+    "${PREFIX}/bin" \
+    "${PREFIX}/include" \
+    "${PREFIX}/lib" \
+    "${PREFIX}/opt" \
+    "${PREFIX}/tmp" \
+    "${PREFIX}/var" \
+    "${PREFIX}/share/doc" \
+    "${PREFIX}/share/info" \
+    "${PREFIX}/share/man"
+}
+
 main() {
   install_packages
+  initialize_root
 }
 
 main
