@@ -92,10 +92,42 @@ config_home() {
   make_symlink "${DOTFILES_PATH}/home/tmux.conf" "${HOME}/.tmux.conf"
 }
 
+config_git() {
+  if ! confirm "Do you want to config git?"; then
+    return
+  fi
+  ensure_dotfiles
+  mkdir -p "${HOME}/.config"
+  make_symlink "${DOTFILES_PATH}/home/config/git" "${HOME}/.config/git"
+
+  local git_config="${HOME}/.config/git/config"
+  if [[ ! -f "${git_config}" ]]; then
+    cat > "${git_config}" <<'EOF'
+[include]
+    path = config.base
+EOF
+  fi
+
+  local name email github_user
+  read -rp "Enter your name for git: " name
+  if [[ -n "${name}" ]]; then
+    git config --file "${git_config}" user.name "${name}"
+  fi
+  read -rp "Enter your email for git: " email
+  if [[ -n "${email}" ]]; then
+    git config --file "${git_config}" user.email "${email}"
+  fi
+  read -rp "Enter your github username: " github_user
+  if [[ -n "${github_user}" ]]; then
+    git config --file "${git_config}" github.user "${github_user}"
+  fi
+}
+
 main() {
   install_packages
   initialize_root
   config_home
+  config_git
 }
 
 main
