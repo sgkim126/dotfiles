@@ -63,6 +63,17 @@ install_packages() {
   esac
 }
 
+install_brew() {
+  if ! confirm "Do you want to install Homebrew?"; then
+    return
+  fi
+  if command -v brew &> /dev/null; then
+    echo "Homebrew is already installed."
+    return
+  fi
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
 initialize_root() {
   if ! confirm "Do you want to initialize \${HOME}/.root directory?"; then
     return
@@ -155,6 +166,7 @@ config_editor() {
 
 main() {
   install_packages
+  install_brew
   initialize_root
   config_home
   config_git
