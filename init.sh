@@ -123,11 +123,42 @@ EOF
   fi
 }
 
+config_editor() {
+  local choice
+  while true; do
+    read -rp "Which editor do you want to configure? (nvim/vim/no) " choice
+    case "${choice}" in
+      nvim | vim | no) break ;;
+      *) echo "Please enter nvim, vim, or no." ;;
+    esac
+  done
+
+  if [[ "${choice}" == "no" ]]; then
+    return
+  fi
+
+  ensure_dotfiles
+  make_symlink "${DOTFILES_PATH}/home/vimrc" "${HOME}/.vimrc"
+  make_symlink "${DOTFILES_PATH}/home/vim" "${HOME}/.vim"
+
+  case "${choice}" in
+    nvim)
+      mkdir -p "${HOME}/.config"
+      make_symlink "${DOTFILES_PATH}/home/config/nvim" "${HOME}/.config/nvim"
+      nvim --headless "+Lazy! sync" +qa
+      ;;
+    vim)
+      vim +PlugInstall +qall
+      ;;
+  esac
+}
+
 main() {
   install_packages
   initialize_root
   config_home
   config_git
+  config_editor
 }
 
 main
