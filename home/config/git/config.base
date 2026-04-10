@@ -4,3 +4,7 @@
 	editor = nvim
 [diff]
 	noprefix = true
+[init]
+	defaultBranch = main
+
+# vim: set ft=gitconfig:
