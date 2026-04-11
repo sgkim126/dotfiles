@@ -1,0 +1,14 @@
+{
+  "keybinds": {
+    "messages_first": "ctrl+g",
+    "messages_last": "ctrl+alt+g",
+    "input_buffer_home": "alt+a",
+    "input_buffer_end": "alt+e",
+    "input_select_buffer_home": "alt+shift+a",
+    "input_select_buffer_end": "alt+shift+e",
+    "input_visual_line_home": "home",
+    "input_visual_line_end": "end",
+    "input_select_visual_line_home": "shift+home",
+    "input_select_visual_line_end": "shift+end"
+  }
+}
