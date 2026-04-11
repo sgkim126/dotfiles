@@ -117,4 +117,7 @@ then
         echo "gnome-screensaver-command --lock" | at $@
     }
 fi
+
+export OPENCODE_EXPERIMENTAL_DISABLE_COPY_ON_SELECT=true
+
 # vim:set ft=sh:
