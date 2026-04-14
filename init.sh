@@ -111,6 +111,13 @@ config_git() {
   if ! confirm "Do you want to config git?"; then
     return
   fi
+
+  if can_brew_install "git"; then
+    if confirm "Do you want to install git via brew?"; then
+      brew install git
+    fi
+  fi
+
   ensure_dotfiles
   mkdir -p "${HOME}/.config"
   make_symlink "${DOTFILES_PATH}/home/config/git" "${HOME}/.config/git"
