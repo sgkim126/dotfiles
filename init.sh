@@ -22,6 +22,10 @@ confirm() {
   done
 }
 
+can_brew_install() {
+  command -v brew &> /dev/null && ! brew list "$1" &> /dev/null
+}
+
 make_symlink() {
   local src="$1"
   local dst="$2"
@@ -146,6 +150,12 @@ config_editor() {
 
   if [[ "${choice}" == "no" ]]; then
     return
+  fi
+
+  if can_brew_install "${choice}"; then
+    if confirm "Do you want to install ${choice} via brew?"; then
+      brew install "${choice}"
+    fi
   fi
 
   ensure_dotfiles
