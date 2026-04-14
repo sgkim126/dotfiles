@@ -7,6 +7,8 @@
 	diffFilter = delta --color-only
 [diff]
 	noprefix = true
+[merge]
+	conflictstyle = diff3
 [init]
 	defaultBranch = main
 
