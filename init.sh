@@ -98,6 +98,12 @@ config_home() {
   if ! confirm "Do you want to config home?"; then
     return
   fi
+  if can_brew_install "tmux"; then
+    if confirm "Do you want to install tmux via brew?"; then
+      brew install tmux
+    fi
+  fi
+
   ensure_dotfiles
   make_symlink "${DOTFILES_PATH}/home/bash_color" "${HOME}/.bash_color"
   make_symlink "${DOTFILES_PATH}/home/bash_profile" "${HOME}/.bash_profile"
