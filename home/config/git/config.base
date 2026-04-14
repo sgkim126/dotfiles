@@ -2,6 +2,9 @@
 	ui = auto
 [core]
 	editor = nvim
+	pager = delta --color-only
+[interactive]
+	diffFilter = delta --color-only
 [diff]
 	noprefix = true
 [init]
