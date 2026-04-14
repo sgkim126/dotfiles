@@ -118,6 +118,10 @@ config_git() {
     fi
   fi
 
+  if can_brew_install "git-delta"; then
+    brew install git-delta
+  fi
+
   ensure_dotfiles
   mkdir -p "${HOME}/.config"
   make_symlink "${DOTFILES_PATH}/home/config/git" "${HOME}/.config/git"
