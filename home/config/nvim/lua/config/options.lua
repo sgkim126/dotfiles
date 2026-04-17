@@ -1,4 +1,5 @@
 vim.cmd("colorscheme vim")
+vim.api.nvim_set_hl(0, "Pmenu", { fg = "#FFFFFF", bg = "#1A1B26" })
 
 -- Git commit message rules
 vim.api.nvim_create_autocmd("FileType", {
