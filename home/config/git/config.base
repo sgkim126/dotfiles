@@ -8,8 +8,6 @@
 [diff]
 	noprefix = true
 	colorMoved = default
-[merge]
-	conflictstyle = diff3
 [init]
 	defaultBranch = main
 
