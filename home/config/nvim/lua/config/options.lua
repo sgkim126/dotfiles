@@ -30,3 +30,29 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.fn.matchadd("GitCommitBodyOverflow", [[\%>2l\%(^#\)\@!\%>72v.*]], 10)
   end,
 })
+
+-- Markdown indent: reset indent at headings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.bo.cindent = false
+    vim.bo.smartindent = false
+    vim.bo.indentexpr = "v:lua.MarkdownIndent()"
+  end,
+})
+
+function MarkdownIndent()
+  local prev_lnum = vim.fn.prevnonblank(vim.v.lnum - 1)
+  if prev_lnum == 0 then
+    return 0
+  end
+
+  local prev_line = vim.fn.getline(prev_lnum)
+  local curr_line = vim.fn.getline(vim.v.lnum)
+
+  if prev_line:match("^#") or curr_line:match("^#") then
+    return 0
+  end
+
+  return vim.fn.indent(prev_lnum)
+end
