@@ -37,7 +37,7 @@ endif
 " Markdown
 Plug 'godlygeek/tabular'
 if !has('nvim')
-  Plug 'plasticboy/vim-markdown'
+  Plug 'preservim/vim-markdown'
   let g:vim_markdown_folding_disabled=1
 endif
 
