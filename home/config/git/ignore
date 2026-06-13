@@ -172,3 +172,4 @@ venv.bak/
 .DS_Store
 
 .worktree/
+.antigravitycli/
