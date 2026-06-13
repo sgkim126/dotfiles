@@ -60,4 +60,9 @@ then
     [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 
+if [ -d "$HOME/.local/bin" ]
+then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
 # vim:set ft=sh:
