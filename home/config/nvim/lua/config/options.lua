@@ -35,6 +35,9 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
+    -- Keep long lines as a single physical line; let the window wrap them visually.
+    vim.bo.textwidth = 0
+    vim.opt_local.formatoptions:remove("t")
     vim.bo.cindent = false
     vim.bo.smartindent = false
     vim.bo.indentexpr = "v:lua.MarkdownIndent()"
